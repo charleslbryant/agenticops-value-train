@@ -175,6 +175,20 @@ Issues move through project statuses that align with priority labels:
 - **Priority "future"**: Must be in "Backlog" status
 - **No priority label**: Must be in "Done" status (completed issues)
 
+### One Piece Flow Rules
+AgenticOps advocates "one piece flow" - focus on one thing at a time to maintain hierarchy and workflow focus. Finish work before starting new work.
+
+**Priority "now" Limitations (unless operator authorizes exception):**
+- **One PRD per project**: Only one PRD can have "now" priority across the entire project
+- **One CRD per operator**: Only one CRD can have "now" priority per operator/team
+- **One Task per session**: Only one Task can have "now" priority per development session
+
+**Rationale:**
+- Prevents context switching and maintains focus
+- Ensures completion before starting new work
+- Maintains clear hierarchy: PRD → CRD → Task
+- Reduces work-in-progress (WIP) and improves flow
+
 ### Issue Creation Workflow
 When creating new issues:
 1. Create the GitHub issue with proper labels
