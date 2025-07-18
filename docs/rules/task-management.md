@@ -50,6 +50,30 @@
 - **agent:evaluator**: Work for Evaluator agent role - validates model quality
 - **agent:improver**: Work for Improver agent role - optimizes features and retraining
 
+### Phase Labels
+
+#### Infrastructure Phase
+- **phase:enablement**: Infrastructure and tooling setup phase
+
+#### Pre-Engagement Phases
+- **phase:opportunity**: Opportunity Triage - Qualify and assess AI opportunity
+- **phase:discovery**: Discovery & Framing - Define use case and align objectives
+- **phase:readiness**: Client Readiness - Assess data, systems, and constraints
+- **phase:scope**: Scope & Pitch - Define MVP and delivery plan
+- **phase:pre-kickoff**: Pre-Kickoff Logistics - Confirm legal and technical alignment
+
+#### Delivery Phases
+- **phase:data-sources**: Identify data assets and export strategies
+- **phase:extraction**: Pull and standardize raw input data
+- **phase:preparation**: Create model-ready training dataset
+- **phase:exploration**: Profile features and identify patterns
+- **phase:feature-engineering**: Generate model-input features
+- **phase:training**: Train models and tune hyperparameters
+- **phase:validation**: Evaluate model performance
+- **phase:deployment**: Deploy model to production
+- **phase:monitoring**: Track performance and detect issues
+- **phase:improvement**: Optimize features and retraining
+
 ### Branch Strategy
 - **One branch per CRD**: `feature/crd-[number]-[description]`
 - **All CRD tasks share the same branch**
