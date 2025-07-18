@@ -1,0 +1,108 @@
+modes:
+  - name: /kick
+    description: Project Kickoff Mode (Template Customization)
+    checklist_id: kick
+    transitions:
+      - /begin
+      - /plan
+    context_files:
+      - /docs/rules/session-workflow.md
+      - /docs/rules/documentation-rules.md
+      - /docs/rules/git-workflow.md
+      - /docs/product/
+      - /docs/architecture/
+
+  - name: /begin
+    description: Session Startup Mode
+    checklist_id: begin
+    transitions:
+      - /plan
+      - /design
+    context_files:
+      - /docs/rules/session-workflow.md
+      - /docs/rules/task-management.md
+      - /docs/rules/git-workflow.md
+      - /docs/rules/check-in-formats.md
+      - /docs/product/
+      - /docs/architecture.md
+      - /docs/session-context/CURRENT_STATE.md
+      - /docs/session-context/NEXT_TASKS.md
+
+  - name: /plan
+    description: Task Planning Mode
+    checklist_id: plan
+    transitions:
+      - /design
+      - /deliver
+    context_files:
+      - /docs/rules/task-management.md
+      - /docs/rules/check-in-formats.md
+      - /docs/rules/documentation-rules.md
+      - /docs/rules/git-workflow.md
+      - /docs/product/
+      - /docs/architecture.md
+      - /docs/session-context/CURRENT_STATE.md
+      - /docs/session-context/NEXT_TASKS.md
+      - /docs/session-context/ACTIVE_SESSION.md
+
+  - name: /design
+    description: Design Mode (Architecture & Technical Design)
+    checklist_id: design
+    transitions:
+      - /dev
+      - /plan
+    context_files:
+      - /docs/rules/design-phase.md
+      - /docs/rules/session-workflow.md
+      - /docs/rules/documentation-rules.md
+      - /docs/rules/git-workflow.md
+      - /docs/product/
+      - /docs/architecture/architecture.md
+      - /docs/session-context/CURRENT_STATE.md
+      - /docs/session-context/NEXT_TASKS.md
+      - /docs/session-context/ACTIVE_SESSION.md
+
+  - name: /dev
+    description: Development Mode (TDD)
+    checklist_id: dev
+    transitions:
+      - /design
+      - /deliver
+    context_files:
+      - /docs/rules/session-workflow.md
+      - /docs/rules/git-workflow.md
+      - /docs/rules/check-in-formats.md
+      - /docs/rules/documentation-rules.md
+      - /docs/session-context/CURRENT_STATE.md
+      - /docs/session-context/NEXT_TASKS.md
+      - /docs/session-context/ACTIVE_SESSION.md
+
+  - name: /deliver
+    description: Delivery Mode (complete, push, PR)
+    checklist_id: deliver
+    transitions:
+      - /begin
+      - /dev
+      - /qa
+    context_files:
+      - /docs/rules/git-workflow.md
+      - /docs/rules/documentation-rules.md
+      - /docs/rules/check-in-formats.md
+      - /docs/product/
+      - /docs/architecture.md
+      - /docs/session-context/CURRENT_STATE.md
+      - /docs/session-context/NEXT_TASKS.md
+      - /docs/session-context/ACTIVE_SESSION.md
+
+  - name: /qa
+    description: QA Mode (test, verify, validate)
+    checklist_id: qa
+    transitions:
+      - /begin
+      - /dev
+    context_files:
+      - /docs/rules/check-in-formats.md
+      - /docs/rules/documentation-rules.md
+      - /docs/session-context/CURRENT_STATE.md
+      - /docs/session-context/NEXT_TASKS.md
+      - /docs/session-context/ACTIVE_SESSION.md
