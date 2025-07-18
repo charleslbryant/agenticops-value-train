@@ -88,9 +88,29 @@ git pull origin main
 git branch -d feature/issue-[number]-[description]
 ```
 
+## GitHub Project Status Updates
+
+### Quick Status Update Commands
+```bash
+# Get project item ID for issue
+ITEM_ID=$(gh project item-list 3 --owner charleslbryant --format json | jq -r '.items[] | select(.content.number == [ISSUE_NUMBER]) | .id')
+
+# Update to In progress (when starting work)
+gh project item-edit --id $ITEM_ID --field-id PVTSSF_lAHOAAL5684A-P-Wzgxtdo8 --project-id PVT_kwHOAAL5684A-P-W --single-select-option-id 47fc9ee4
+
+# Update to In review (when creating PR)
+gh project item-edit --id $ITEM_ID --field-id PVTSSF_lAHOAAL5684A-P-Wzgxtdo8 --project-id PVT_kwHOAAL5684A-P-W --single-select-option-id df73e18b
+
+# Update to Done (when PR is merged)
+gh project item-edit --id $ITEM_ID --field-id PVTSSF_lAHOAAL5684A-P-Wzgxtdo8 --project-id PVT_kwHOAAL5684A-P-W --single-select-option-id 98236657
+```
+
+*See [Task Management Rules](task-management.md) for complete command reference.*
+
 ## TodoWrite Integration
 When starting git work, automatically add these todos:
 - [ ] Pull latest main before any push operations
 - [ ] Merge main into feature branch before push
 - [ ] Use assistant attribution in commit message
+- [ ] Update project status during workflow transitions
 - [ ] Clean up branches after PR merge

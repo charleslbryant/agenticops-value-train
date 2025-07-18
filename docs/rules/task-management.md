@@ -179,8 +179,50 @@ Issues move through project statuses that align with priority labels:
 When creating new issues:
 1. Create the GitHub issue with proper labels
 2. Add issue to project: `gh project item-add 3 --owner charleslbryant --url [issue-url]`
-3. Set appropriate status based on priority
+3. Set appropriate status based on priority (see Status Update Commands below)
 4. Update project fields as needed
+
+### Status Update Commands
+Use these commands to update project item statuses. Get the project item ID from `gh project item-list 3 --owner charleslbryant`.
+
+**Project Configuration:**
+- Project ID: `PVT_kwHOAAL5684A-P-W`
+- Status Field ID: `PVTSSF_lAHOAAL5684A-P-Wzgxtdo8`
+
+**Status Options:**
+- Backlog: `f75ad846`
+- Ready: `61e4505c`
+- In progress: `47fc9ee4`
+- In review: `df73e18b`
+- Done: `98236657`
+
+**Update Commands:**
+```bash
+# Update to Backlog
+gh project item-edit --id [ITEM_ID] --field-id PVTSSF_lAHOAAL5684A-P-Wzgxtdo8 --project-id PVT_kwHOAAL5684A-P-W --single-select-option-id f75ad846
+
+# Update to Ready
+gh project item-edit --id [ITEM_ID] --field-id PVTSSF_lAHOAAL5684A-P-Wzgxtdo8 --project-id PVT_kwHOAAL5684A-P-W --single-select-option-id 61e4505c
+
+# Update to In progress
+gh project item-edit --id [ITEM_ID] --field-id PVTSSF_lAHOAAL5684A-P-Wzgxtdo8 --project-id PVT_kwHOAAL5684A-P-W --single-select-option-id 47fc9ee4
+
+# Update to In review
+gh project item-edit --id [ITEM_ID] --field-id PVTSSF_lAHOAAL5684A-P-Wzgxtdo8 --project-id PVT_kwHOAAL5684A-P-W --single-select-option-id df73e18b
+
+# Update to Done
+gh project item-edit --id [ITEM_ID] --field-id PVTSSF_lAHOAAL5684A-P-Wzgxtdo8 --project-id PVT_kwHOAAL5684A-P-W --single-select-option-id 98236657
+```
+
+**Quick Reference:**
+```bash
+# Get project item ID for issue
+gh project item-list 3 --owner charleslbryant --format json | jq -r '.items[] | select(.content.number == [ISSUE_NUMBER]) | .id'
+
+# Example: Update issue to In progress
+ITEM_ID=$(gh project item-list 3 --owner charleslbryant --format json | jq -r '.items[] | select(.content.number == 3) | .id')
+gh project item-edit --id $ITEM_ID --field-id PVTSSF_lAHOAAL5684A-P-Wzgxtdo8 --project-id PVT_kwHOAAL5684A-P-W --single-select-option-id 47fc9ee4
+```
 
 ### Status Updates
 - **Planning**: New issues start in "Backlog" with priority "future"
