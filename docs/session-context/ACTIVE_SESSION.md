@@ -13,13 +13,13 @@ assistant: "Claude Code"
 ```yaml
 mode: "build"  # intake|discover|scope|design|build|evaluate|deliver|operate|improve
 phase: "enablement"  # From pipeline.yml phases
-agent: "conductor"  # conductor|onboarder|lab|studio|ops|evaluator|improver
+agent: "ops"  # conductor|onboarder|lab|studio|ops|evaluator|improver
 task:
-  issue_number: 5
-  title: "Set up Python helper scripts"
-  url: "https://github.com/charleslbryant/agenticops-value-train/issues/5"
+  issue_number: 6
+  title: "Configure GitHub Actions workflows"
+  url: "https://github.com/charleslbryant/agenticops-value-train/issues/6"
   priority: "now"
-  status: "Done"
+  status: "In progress"
 branch: "main"
 ```
 

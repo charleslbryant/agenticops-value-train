@@ -2,11 +2,11 @@
 Test fixtures and utilities for AgenticOps Value Train tests.
 """
 
-import pytest
 import tempfile
-import shutil
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any, Dict
+
+import pytest
 import yaml
 
 
@@ -15,13 +15,13 @@ def temp_project_root():
     """Create a temporary project directory structure."""
     with tempfile.TemporaryDirectory() as temp_dir:
         project_root = Path(temp_dir)
-        
+
         # Create directory structure
         (project_root / "docs" / "session-context").mkdir(parents=True)
         (project_root / "docs" / "rules" / "checklists").mkdir(parents=True)
         (project_root / "config").mkdir(parents=True)
         (project_root / "scripts").mkdir(parents=True)
-        
+
         yield project_root
 
 
@@ -29,10 +29,7 @@ def temp_project_root():
 def sample_pipeline_config():
     """Sample pipeline configuration for testing."""
     return {
-        "metadata": {
-            "name": "Test Pipeline",
-            "version": "1.0.0"
-        },
+        "metadata": {"name": "Test Pipeline", "version": "1.0.0"},
         "phases": [
             {
                 "name": "enablement",
@@ -40,7 +37,7 @@ def sample_pipeline_config():
                 "mode": "build",
                 "owner": "conductor",
                 "artifacts": ["setup.md", "config.yml"],
-                "next_phase": "discovery"
+                "next_phase": "discovery",
             },
             {
                 "name": "discovery",
@@ -48,7 +45,7 @@ def sample_pipeline_config():
                 "mode": "discover",
                 "owner": "onboarder",
                 "artifacts": ["use-case.md", "requirements.md"],
-                "next_phase": "scope"
+                "next_phase": "scope",
             },
             {
                 "name": "scope",
@@ -56,27 +53,27 @@ def sample_pipeline_config():
                 "mode": "scope",
                 "owner": "onboarder",
                 "artifacts": ["scope.md"],
-                "next_phase": None
-            }
+                "next_phase": None,
+            },
         ],
         "modes": [
             {
                 "name": "build",
                 "description": "Build mode",
                 "agents": ["conductor"],
-                "allowed_tools": ["Read", "Write"]
+                "allowed_tools": ["Read", "Write"],
             },
             {
                 "name": "discover",
                 "description": "Discover mode",
                 "agents": ["onboarder"],
-                "allowed_tools": ["Read", "Write", "WebFetch"]
-            }
+                "allowed_tools": ["Read", "Write", "WebFetch"],
+            },
         ],
         "artifact_paths": {
             "preengagement": {"base_path": "/preengagement"},
-            "delivery": {"base_path": "/delivery"}
-        }
+            "delivery": {"base_path": "/delivery"},
+        },
     }
 
 
@@ -257,20 +254,26 @@ This is the legacy session content.
 """
 
 
-def create_test_files(project_root: Path, pipeline_config: Dict[str, Any], active_session: str):
+def create_test_files(
+    project_root: Path, pipeline_config: Dict[str, Any], active_session: str
+):
     """Helper to create test files in project structure."""
     # Create pipeline config
     with open(project_root / "config" / "pipeline.yml", "w") as f:
         yaml.dump(pipeline_config, f)
-    
+
     # Create active session
-    with open(project_root / "docs" / "session-context" / "ACTIVE_SESSION.md", "w") as f:
+    with open(
+        project_root / "docs" / "session-context" / "ACTIVE_SESSION.md", "w"
+    ) as f:
         f.write(active_session)
 
 
 def create_test_checklist(project_root: Path, mode: str, content: str):
     """Helper to create test checklist files."""
-    checklist_path = project_root / "docs" / "rules" / "checklists" / f"{mode}-checklist.md"
+    checklist_path = (
+        project_root / "docs" / "rules" / "checklists" / f"{mode}-checklist.md"
+    )
     with open(checklist_path, "w") as f:
         f.write(content)
 

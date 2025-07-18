@@ -385,12 +385,3 @@ a2a:
   conductor_task_router: Conductor
   eval_perf_watcher: Evaluator, Improver
 ```
-
-### Next Steps
-
-1.  Decide which of the nine proposed modes you truly need day one.
-2.  Create `docs/rules/<mode>-checklist.md` files containing each checklist.
-3.  Add header templates to the codebase so agents can copy-paste quickly.
-4.  Register skills, tools, MCPs, and A2A assets in a single file for easy maintenance.
-
-Once the skeleton is in place, every session follows the same rhythm across the whole AI life-cycle.
