@@ -118,10 +118,12 @@ created_files:
   - "/home/cbryant/projects/agenticops/tests/scripts/test_check_artifacts.py"
   - "/home/cbryant/projects/agenticops/tests/scripts/test_conductor_update.py"
   - "/home/cbryant/projects/agenticops/tests/scripts/test_migrate_session.py"
+  - "/home/cbryant/projects/agenticops/docs/planning-tasks.md"
 modified_files:
   - "/home/cbryant/projects/agenticops/docs/session-context/ACTIVE_SESSION.md"
   - "/home/cbryant/projects/agenticops/scripts/check_todo.py"
   - "/home/cbryant/projects/agenticops/scripts/conductor_update.py"
+  - "/home/cbryant/projects/agenticops/.gitignore"
 dependencies:
   - "PyYAML>=6.0"
   - "pytest>=7.0.0"
@@ -144,11 +146,14 @@ decisions:
   - "Set up Python virtual environment with pytest"
   - "Followed TDD approach for all script development"
   - "Completed Task #5 - Python helper scripts"
+  - "Created planning-tasks.md for future task tracking"
 blockers: []
 next_steps:
-  - "Update GitHub issue #5 to Done status"
+  - "Review planning-tasks.md during next /plan session"
+  - "Create GitHub issues for dependency tracking task"
+  - "Create GitHub issues for @includes path updates"
+  - "Create GitHub issues for command integration"
   - "Move to Task #6 - Configure GitHub Actions workflows"
-  - "Integrate Python scripts into CI/CD pipeline"
 handoff_requirements: []
 ```
 
