@@ -1,0 +1,279 @@
+# AgenticOps Asset Registry
+# Registry of skills, tools, MCPs, and Agent-to-Agent (A2A) interfaces
+
+# Skills - Capabilities or domain expertise that agents can apply
+skills:
+  architecture_design:
+    description: "Ability to map inputs → model → outputs and design system architecture"
+    agents: ["studio", "conductor"]
+    category: "technical"
+    
+  business_framing:
+    description: "Translate client needs into scoped delivery and business alignment"
+    agents: ["onboarder", "conductor"]
+    category: "business"
+    
+  data_profiling:
+    description: "Analyze data quality, completeness, and structure"
+    agents: ["lab"]
+    category: "technical"
+    
+  feature_engineering:
+    description: "Design and implement derived features from raw data"
+    agents: ["lab", "studio"]
+    category: "technical"
+    
+  model_training:
+    description: "Train, validate, and optimize machine learning models"
+    agents: ["lab"]
+    category: "technical"
+    
+  deployment_automation:
+    description: "Automate model deployment and infrastructure provisioning"
+    agents: ["ops", "studio"]
+    category: "technical"
+    
+  quality_assurance:
+    description: "Define metrics, validate performance, and ensure quality"
+    agents: ["evaluator"]
+    category: "quality"
+    
+  performance_optimization:
+    description: "Optimize system performance and resource utilization"
+    agents: ["improver", "ops"]
+    category: "optimization"
+    
+  stakeholder_management:
+    description: "Manage relationships and align expectations with stakeholders"
+    agents: ["onboarder", "conductor"]
+    category: "business"
+    
+  risk_assessment:
+    description: "Identify and assess project risks and mitigation strategies"
+    agents: ["onboarder", "evaluator"]
+    category: "risk"
+
+# Tools - Tangible assets or software utilities for task completion
+tools:
+  data_profiler:
+    description: "Jupyter or C# notebook for Exploratory Data Analysis"
+    agents: ["lab"]
+    category: "analysis"
+    implementation: "Python/C# Notebook"
+    
+  mlflow_tracker:
+    description: "Logs and visualizes experiment results and model artifacts"
+    agents: ["lab", "evaluator"]
+    category: "ml_ops"
+    implementation: "MLflow"
+    
+  deployment_pipeline:
+    description: "CI/CD system for model packaging and deployment"
+    agents: ["studio", "ops"]
+    category: "deployment"
+    implementation: "GitHub Actions / Jenkins"
+    
+  monitoring_dashboard:
+    description: "Real-time performance and drift monitoring"
+    agents: ["ops", "evaluator"]
+    category: "monitoring"
+    implementation: "CloudWatch / Grafana"
+    
+  cost_tracker:
+    description: "Cloud cost monitoring and optimization"
+    agents: ["ops"]
+    category: "finops"
+    implementation: "AWS Cost Explorer / Azure Cost Management"
+    
+  data_quality_checker:
+    description: "Automated data quality validation and alerts"
+    agents: ["lab", "evaluator"]
+    category: "quality"
+    implementation: "Custom Python Scripts"
+    
+  version_control:
+    description: "Code and artifact version management"
+    agents: ["all"]
+    category: "development"
+    implementation: "Git / GitHub"
+    
+  project_management:
+    description: "Issue tracking and project coordination"
+    agents: ["conductor"]
+    category: "management"
+    implementation: "GitHub Projects"
+    
+  documentation_generator:
+    description: "Automated documentation and reporting"
+    agents: ["all"]
+    category: "documentation"
+    implementation: "Markdown / Sphinx"
+    
+  security_scanner:
+    description: "Security vulnerability scanning and compliance checking"
+    agents: ["ops"]
+    category: "security"
+    implementation: "SAST/DAST Tools"
+
+# MCPs - Model Context Protocols for structured AI interactions
+mcps:
+  discovery_v1:
+    description: "Structured prompt set for client discovery and workshops"
+    agents: ["all"]
+    category: "communication"
+    version: "1.0"
+    purpose: "Standardize client interaction and requirement gathering"
+    
+  evaluation_v1:
+    description: "Consistent evaluation criteria and metrics framework"
+    agents: ["evaluator", "improver"]
+    category: "assessment"
+    version: "1.0"
+    purpose: "Standardize model and system evaluation"
+    
+  handoff_v1:
+    description: "Structured handoff protocol between agents"
+    agents: ["all"]
+    category: "coordination"
+    version: "1.0"
+    purpose: "Ensure smooth transitions between development phases"
+    
+  documentation_v1:
+    description: "Standardized documentation templates and formats"
+    agents: ["all"]
+    category: "documentation"
+    version: "1.0"
+    purpose: "Maintain consistent documentation standards"
+    
+  risk_assessment_v1:
+    description: "Risk identification and mitigation framework"
+    agents: ["onboarder", "evaluator"]
+    category: "risk"
+    version: "1.0"
+    purpose: "Systematic risk assessment and management"
+
+# A2A - Agent-to-Agent interfaces for coordination and information flow
+a2a:
+  conductor_task_router:
+    description: "Assigns, sequences, and re-tries agent tasks"
+    source_agent: "conductor"
+    target_agents: ["all"]
+    category: "orchestration"
+    interface_type: "api"
+    
+  eval_perf_watcher:
+    description: "Periodic model accuracy and drift monitoring alerts"
+    source_agent: "evaluator"
+    target_agents: ["improver", "ops"]
+    category: "monitoring"
+    interface_type: "webhook"
+    
+  data_quality_alerts:
+    description: "Automated alerts for data quality issues"
+    source_agent: "lab"
+    target_agents: ["evaluator", "conductor"]
+    category: "quality"
+    interface_type: "notification"
+    
+  deployment_status:
+    description: "Deployment success/failure notifications"
+    source_agent: "ops"
+    target_agents: ["studio", "conductor"]
+    category: "deployment"
+    interface_type: "webhook"
+    
+  business_impact_reporter:
+    description: "Business impact and ROI reporting"
+    source_agent: "evaluator"
+    target_agents: ["conductor", "onboarder"]
+    category: "business"
+    interface_type: "report"
+    
+  resource_optimizer:
+    description: "Cost and resource optimization recommendations"
+    source_agent: "ops"
+    target_agents: ["improver", "conductor"]
+    category: "optimization"
+    interface_type: "recommendation"
+    
+  stakeholder_updater:
+    description: "Automated stakeholder progress updates"
+    source_agent: "conductor"
+    target_agents: ["onboarder"]
+    category: "communication"
+    interface_type: "notification"
+    
+  model_registry:
+    description: "Centralized model artifact and metadata management"
+    source_agent: "lab"
+    target_agents: ["studio", "ops", "evaluator"]
+    category: "artifact"
+    interface_type: "registry"
+
+# Asset Categories - Logical groupings for organization
+categories:
+  technical:
+    description: "Technical skills and capabilities"
+    
+  business:
+    description: "Business and stakeholder management"
+    
+  quality:
+    description: "Quality assurance and validation"
+    
+  optimization:
+    description: "Performance and resource optimization"
+    
+  risk:
+    description: "Risk assessment and management"
+    
+  analysis:
+    description: "Data analysis and profiling"
+    
+  ml_ops:
+    description: "Machine learning operations"
+    
+  deployment:
+    description: "Deployment and infrastructure"
+    
+  monitoring:
+    description: "System monitoring and alerting"
+    
+  finops:
+    description: "Financial operations and cost management"
+    
+  development:
+    description: "Software development and versioning"
+    
+  management:
+    description: "Project and process management"
+    
+  documentation:
+    description: "Documentation and knowledge management"
+    
+  security:
+    description: "Security and compliance"
+    
+  communication:
+    description: "Communication and coordination"
+    
+  assessment:
+    description: "Evaluation and assessment"
+    
+  coordination:
+    description: "Cross-agent coordination"
+    
+  orchestration:
+    description: "Workflow orchestration"
+    
+  notification:
+    description: "Alerts and notifications"
+    
+  recommendation:
+    description: "Recommendations and insights"
+    
+  artifact:
+    description: "Artifact management and storage"
+    
+  registry:
+    description: "Centralized registries and catalogs"
