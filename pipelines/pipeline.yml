@@ -230,14 +230,14 @@ agents:
       - "Manages stakeholder relationships"
     
   - name: "lab"
-    description: "Handles data profiling, extraction, cleaning, and modeling"
+    description: "Handles R&D,data profiling, extraction, cleaning, and modeling"
     responsibilities:
       - "Data pipeline development"
       - "Feature engineering"
       - "Model training and experimentation"
     
   - name: "studio"
-    description: "Designs models, architecture, and inference systems"
+    description: "Handles productization, designs models, architecture, and inference systems"
     responsibilities:
       - "System architecture design"
       - "Model deployment strategies"
