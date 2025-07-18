@@ -9,6 +9,15 @@ venv/
 .venv
 .env
 
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+*.coverage
+.coverage.*
+coverage.xml
+*.cover
+
 # IDE
 .vscode/
 .idea/
