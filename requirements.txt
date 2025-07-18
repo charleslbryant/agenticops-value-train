@@ -1,0 +1,23 @@
+# AgenticOps Value Train Python Dependencies
+# Required for automation scripts and CI/CD workflows
+
+# Core dependencies
+PyYAML>=6.0
+argparse>=1.4.0
+
+# Development and testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=22.0.0
+flake8>=5.0.0
+mypy>=1.0.0
+
+# Optional dependencies for enhanced functionality
+requests>=2.28.0  # For web API calls if needed
+click>=8.0.0      # Alternative CLI framework
+rich>=12.0.0      # Enhanced console output
+pathlib2>=2.3.0   # Python 3.7 compatibility
+
+# Documentation
+sphinx>=5.0.0     # Documentation generation
+sphinx-rtd-theme>=1.0.0  # Read the Docs theme
