@@ -13,14 +13,11 @@ import yaml
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
 
 # Import scripts after path modification
-from check_artifacts import (  # noqa: E402
-    check_artifacts_exist,
-    get_phase_artifacts,
-    load_active_session,
-    load_pipeline_config,
-    main,
-    resolve_artifact_paths,
-)
+from check_artifacts import check_artifacts_exist  # noqa: E402
+from check_artifacts import get_phase_artifacts  # noqa: E402
+from check_artifacts import (load_active_session,  # noqa: E402
+                             load_pipeline_config, main,
+                             resolve_artifact_paths)
 
 
 @pytest.mark.unit
