@@ -162,12 +162,18 @@ All issues must be added to the AgenticOps Value Train project:
 - **Project Fields**: Status, Priority, Size, Estimate, Start/End dates
 
 ### Status Management
-Issues move through project statuses that align with development workflow:
+Issues move through project statuses that align with priority labels:
 - **Backlog**: Items that haven't been started (priority: future)
 - **Ready**: Items ready to be picked up (priority: next)
-- **In progress**: Items actively being worked on (priority: now, active work)
-- **In review**: Items in review (PRs created, awaiting approval)
-- **Done**: Items that have been completed
+- **In progress**: Items actively being worked on (priority: now)
+- **In review**: Items in review with PRs created (priority: now)
+- **Done**: Items that have been completed (priority label removed)
+
+### Priority-Status Alignment Rules
+- **Priority "now"**: Must be in "In progress" or "In review" status
+- **Priority "next"**: Must be in "Ready" status
+- **Priority "future"**: Must be in "Backlog" status
+- **No priority label**: Must be in "Done" status (completed issues)
 
 ### Issue Creation Workflow
 When creating new issues:
@@ -177,12 +183,18 @@ When creating new issues:
 4. Update project fields as needed
 
 ### Status Updates
-- **Planning**: New issues start in "Backlog" 
-- **Ready for work**: Move issue from "Backlog" to "Ready"
-- **Starting work**: Move issue from "Ready" to "In progress"
-- **Creating PR**: Move issue from "In progress" to "In review" when PR is created
-- **Completing work**: Move issue from "In review" to "Done" when PR is merged
+- **Planning**: New issues start in "Backlog" with priority "future"
+- **Ready for work**: Move issue from "Backlog" to "Ready" and change priority to "next"
+- **Starting work**: Move issue from "Ready" to "In progress" and change priority to "now"
+- **Creating PR**: Move issue from "In progress" to "In review" (keep priority "now")
+- **Completing work**: Move issue from "In review" to "Done" and remove priority label
 - **Blocked work**: Keep in current status but add `blocked` label
+
+### Label Management Rules
+- **Adding priority**: When moving from Backlog → Ready → In progress
+- **Keeping priority**: "now" priority stays when moving In progress → In review
+- **Removing priority**: Remove priority label when moving to "Done" status
+- **Blocked items**: Add "blocked" label but maintain priority and status alignment
 
 ## TodoWrite Integration
 Task management todos:

@@ -44,7 +44,7 @@ EOF
 ## Complete Development Workflow
 
 1. **Assignment**: Assign GitHub issue to repository owner
-2. **Project Status**: Move issue to "In progress" status in project
+2. **Project Status**: Move issue to "In progress" status and ensure priority is "now"
 3. **Branch Creation**: Create feature branch for the issue
 4. **Development**: Implement using TDD on feature branch
 5. **Testing**: Ensure all tests pass before committing
@@ -58,9 +58,9 @@ EOF
    ```
 8. **Push**: `git push -u origin feature/issue-[number]-[description]`
 9. **Pull Request**: Create PR with template
-10. **Project Update**: Move issue to "In review" status in project
+10. **Project Update**: Move issue to "In review" status (keep priority "now")
 11. **Merge PR**: Merge or approve PR 
-12. **Project Update**: Move issue to "Done" status in project
+12. **Project Update**: Move issue to "Done" status and remove priority label
 13. **Post-Merge Cleanup** (CRITICAL):
     ```bash
     # MANDATORY sequence after PR merge
