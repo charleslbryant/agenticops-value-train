@@ -4,15 +4,15 @@ Tests for check_todo.py script.
 
 import sys
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
-import yaml
 
 # Add scripts to path for testing
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
 
-from check_todo import (
+# Import scripts after path modification
+from check_todo import (  # noqa: E402
     check_unchecked_items,
     find_active_checklist,
     find_active_session_file,
@@ -143,7 +143,7 @@ class TestCheckUncheckedItems:
 
         result = check_unchecked_items(checklist_path)
 
-        assert len(result) == 4  # 4 unchecked items
+        assert len(result) == 8  # 8 unchecked items total
         line_numbers = [item[0] for item in result]
         assert 5 in line_numbers  # "- [ ] Data access confirmed"
         assert 6 in line_numbers  # "- [ ] Team ready"

@@ -222,6 +222,8 @@ def save_active_session(project_root: Path, content: str):
     )
 
     try:
+        # Create directory if it doesn't exist
+        active_session_path.parent.mkdir(parents=True, exist_ok=True)
         with open(active_session_path, "w") as f:
             f.write(content)
         logger.info(f"Updated ACTIVE_SESSION.md at {active_session_path}")

@@ -2,19 +2,17 @@
 Tests for migrate_session.py script.
 """
 
-import json
 import sys
-import tempfile
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
-import yaml
 
 # Add scripts to path for testing
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
 
-from migrate_session import (
+# Import scripts after path modification
+from migrate_session import (  # noqa: E402
     detect_legacy_format,
     generate_new_session_content,
     main,

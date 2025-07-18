@@ -3,9 +3,8 @@ Tests for conductor_update.py script.
 """
 
 import sys
-from datetime import datetime
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
 import yaml
@@ -13,7 +12,8 @@ import yaml
 # Add scripts to path for testing
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
 
-from conductor_update import (
+# Import scripts after path modification
+from conductor_update import (  # noqa: E402
     get_next_phase,
     get_phase_info,
     load_active_session,
@@ -417,7 +417,9 @@ class TestMainFunction:
         updated_content = session_path.read_text()
         assert "phase: scope" in updated_content
 
-    def test_main_at_end_of_pipeline(self, temp_project_root, sample_pipeline_config):
+    def test_main_at_end_of_pipeline(
+        self, temp_project_root, sample_pipeline_config, sample_active_session
+    ):
         """Test when already at end of pipeline."""
         # Create session at final phase
         session_content = sample_active_session.replace(

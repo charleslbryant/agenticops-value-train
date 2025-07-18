@@ -4,7 +4,7 @@ Tests for check_artifacts.py script.
 
 import sys
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
 import yaml
@@ -12,7 +12,8 @@ import yaml
 # Add scripts to path for testing
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
 
-from check_artifacts import (
+# Import scripts after path modification
+from check_artifacts import (  # noqa: E402
     check_artifacts_exist,
     get_phase_artifacts,
     load_active_session,
