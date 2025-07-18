@@ -36,9 +36,7 @@ Brief descriptive title of changes
 - Reference resolved GitHub issues if applicable
 - Resolves GitHub issues #[number], #[number]
 
-🤖 Generated with AI Assistant
-
-Co-Authored-By: [Assistant Name] <[assistant@email.com]>
+🤖 Generated with AI
 EOF
 )"
 ```
@@ -46,21 +44,24 @@ EOF
 ## Complete Development Workflow
 
 1. **Assignment**: Assign GitHub issue to repository owner
-2. **Branch Creation**: Create feature branch for the issue
-3. **Development**: Implement using TDD on feature branch
-4. **Testing**: Ensure all tests pass before committing
-5. **Commit**: Use standardized message format with assistant attribution
-6. **Branch Sync** (CRITICAL): 
+2. **Project Status**: Move issue to "In progress" status in project
+3. **Branch Creation**: Create feature branch for the issue
+4. **Development**: Implement using TDD on feature branch
+5. **Testing**: Ensure all tests pass before committing
+6. **Commit**: Use standardized message format with assistant attribution
+7. **Branch Sync** (CRITICAL): 
    ```bash
    git checkout main
    git pull origin main
    git checkout feature/issue-[number]-[description]
    git merge main
    ```
-7. **Push**: `git push -u origin feature/issue-[number]-[description]`
-8. **Pull Request**: Create PR with template
-9. **Merge PR**: Merge or approve PR 
-10. **Post-Merge Cleanup** (CRITICAL):
+8. **Push**: `git push -u origin feature/issue-[number]-[description]`
+9. **Pull Request**: Create PR with template
+10. **Project Update**: Move issue to "In review" status in project
+11. **Merge PR**: Merge or approve PR 
+12. **Project Update**: Move issue to "Done" status in project
+13. **Post-Merge Cleanup** (CRITICAL):
     ```bash
     # MANDATORY sequence after PR merge
     git checkout main

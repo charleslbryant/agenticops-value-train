@@ -115,12 +115,12 @@ PRD (Product Vision)
 ## Mode-Based Workflow Integration
 
 ### Planning Phase (`/plan` mode)
-1. **Review Current PRDs**: Check "now" priority PRDs for active work
-2. **Break Down PRDs**: Create CRDs for each user story if needed
+1. **Review Current PRDs**: Check "now" priority PRDs for active work or select or create a new PRD with operator approval
+2. **Break Down PRDs**: Create CRDs for each user story if needed with operator approval
 3. **Prioritize CRDs**: Apply "now", "next", "future" labels with operator approval
 4. **Review Current CRD**: Understand scope and acceptance criteria
-5. **Create Task Issues**: Break down CRD into specific, testable tasks
-6. **Select Next Task**: Choose single task for immediate implementation
+5. **Create Task Issues**: Break down CRD into specific, prioritized, and testable tasks, with operator approval
+6. **Select Next Task**: Choose single task "now" priority taskfor immediate implementation
 
 ### Development Phase (`/design`, `/dev` modes)
 1. **Single Task Focus**: Work on ONE selected task at a time
@@ -131,8 +131,8 @@ PRD (Product Vision)
 1. **Complete Task**: Finish implementation and tests
 2. **Update Documentation**: Update affected docs and create ADRs
 3. **Create Pull Request**: Follow git workflow rules
-4. **Close Task Issue**: Mark as completed with PR reference
-5. **Update CRD**: Move completed task to "Done" section
+4. **Close Issue**: Mark issues as completed with PR reference, the current task issue, if all tasks are complete on a CRD, close the CRD issue, if all CRDs are complete on a PRD, close the PRD issue, with operator approval
+5. **Update Issue**: Move completed issues to "Done" section
 
 ## Work Process
 
@@ -154,10 +154,42 @@ PRD (Product Vision)
 - When in doubt about scope: ask operator before proceeding
 - Use `/plan` mode to re-evaluate scope and create additional tasks
 
+## GitHub Project Integration
+
+### Project Management
+All issues must be added to the AgenticOps Value Train project:
+- **Project URL**: https://github.com/users/charleslbryant/projects/3
+- **Project Fields**: Status, Priority, Size, Estimate, Start/End dates
+
+### Status Management
+Issues move through project statuses that align with development workflow:
+- **Backlog**: Items that haven't been started (priority: future)
+- **Ready**: Items ready to be picked up (priority: next)
+- **In progress**: Items actively being worked on (priority: now, active work)
+- **In review**: Items in review (PRs created, awaiting approval)
+- **Done**: Items that have been completed
+
+### Issue Creation Workflow
+When creating new issues:
+1. Create the GitHub issue with proper labels
+2. Add issue to project: `gh project item-add 3 --owner charleslbryant --url [issue-url]`
+3. Set appropriate status based on priority
+4. Update project fields as needed
+
+### Status Updates
+- **Planning**: New issues start in "Backlog" 
+- **Ready for work**: Move issue from "Backlog" to "Ready"
+- **Starting work**: Move issue from "Ready" to "In progress"
+- **Creating PR**: Move issue from "In progress" to "In review" when PR is created
+- **Completing work**: Move issue from "In review" to "Done" when PR is merged
+- **Blocked work**: Keep in current status but add `blocked` label
+
 ## TodoWrite Integration
 Task management todos:
 - [ ] Review task breakdown in assigned CRD
 - [ ] Create GitHub issues for each CRD task if not already created
+- [ ] Add new issues to GitHub project with proper status
 - [ ] Assign current "now" priority task to self
 - [ ] Verify current branch matches the task being worked on
+- [ ] Update project status when starting/completing work
 - [ ] Complete current task before starting new work
