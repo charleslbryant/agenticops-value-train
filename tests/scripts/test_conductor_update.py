@@ -13,10 +13,16 @@ import yaml
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
 
 # Import scripts after path modification
-from conductor_update import (get_next_phase, get_phase_info,  # noqa: E402
-                              load_active_session, load_pipeline_config, main,
-                              replace_yaml_section, save_active_session,
-                              update_session_phase)
+from conductor_update import (  # noqa: E402
+    get_next_phase,
+    get_phase_info,
+    load_active_session,
+    load_pipeline_config,
+    main,
+    replace_yaml_section,
+    save_active_session,
+    update_session_phase,
+)
 
 
 @pytest.mark.unit
@@ -409,7 +415,7 @@ class TestMainFunction:
             temp_project_root / "docs" / "session-context" / "ACTIVE_SESSION.md"
         )
         updated_content = session_path.read_text()
-        assert "phase: scope" in updated_content
+        assert 'phase: "scope"' in updated_content
 
     def test_main_at_end_of_pipeline(
         self, temp_project_root, sample_pipeline_config, sample_active_session
@@ -437,7 +443,7 @@ class TestMainFunction:
             temp_project_root / "docs" / "session-context" / "ACTIVE_SESSION.md"
         )
         updated_content = session_path.read_text()
-        assert "phase: scope" in updated_content  # Should remain unchanged
+        assert 'phase: "scope"' in updated_content  # Should remain unchanged
 
     def test_main_missing_current_work(self, temp_project_root, sample_pipeline_config):
         """Test when Current Work section is missing."""
