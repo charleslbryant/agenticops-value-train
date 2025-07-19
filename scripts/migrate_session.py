@@ -185,8 +185,10 @@ def generate_new_session_content(legacy_data: Dict, project_root: Path) -> str:
 
     def escape_quotes(text):
         return text.replace('"', '\\"')
-    
-    decisions_yaml = "\n".join([f'  - "{escape_quotes(decision)}"' for decision in decisions])
+
+    decisions_yaml = "\n".join(
+        [f'  - "{escape_quotes(decision)}"' for decision in decisions]
+    )
     next_steps_yaml = "\n".join([f'  - "{escape_quotes(step)}"' for step in next_steps])
 
     if not decisions_yaml:
