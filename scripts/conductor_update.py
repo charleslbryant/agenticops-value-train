@@ -268,7 +268,11 @@ def main():
         logger.error("No Current Work section found in ACTIVE_SESSION.md")
         sys.exit(1)
 
-    current_work = yaml.safe_load(current_work_yaml)
+    try:
+        current_work = yaml.safe_load(current_work_yaml)
+    except yaml.YAMLError as e:
+        logger.error(f"Invalid YAML in Current Work section: {e}")
+        sys.exit(1)
     current_phase = current_work.get("phase")
 
     if not current_phase:

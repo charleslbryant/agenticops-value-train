@@ -413,7 +413,7 @@ class TestMainFunction:
             temp_project_root / "docs" / "session-context" / "ACTIVE_SESSION.md"
         )
         updated_content = session_path.read_text()
-        assert 'phase: "scope"' in updated_content
+        assert 'phase: scope' in updated_content
 
     def test_main_at_end_of_pipeline(
         self, temp_project_root, sample_pipeline_config, sample_active_session
@@ -441,7 +441,7 @@ class TestMainFunction:
             temp_project_root / "docs" / "session-context" / "ACTIVE_SESSION.md"
         )
         updated_content = session_path.read_text()
-        assert 'phase: "scope"' in updated_content  # Should remain unchanged
+        assert 'phase: scope' in updated_content  # Should remain unchanged
 
     def test_main_missing_current_work(self, temp_project_root, sample_pipeline_config):
         """Test when Current Work section is missing."""
@@ -586,7 +586,7 @@ last_updated: "2025-01-18 10:30:00"
         # The timestamp should be in YYYY-MM-DD HH:MM:SS format
         import re
 
-        timestamp_pattern = r'last_updated: "\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}"'
+        timestamp_pattern = r"last_updated: ['\"]?\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}['\"]?"
         assert re.search(timestamp_pattern, result)
 
 

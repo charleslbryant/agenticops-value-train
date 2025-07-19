@@ -180,11 +180,14 @@ def generate_new_session_content(legacy_data: Dict, project_root: Path) -> str:
   status: "In progress\""""
 
     # Build decisions and next steps
-    decisions = legacy_data.get("decisions", [])
-    next_steps = legacy_data.get("next_steps", [])
+    decisions = legacy_data.get("decisions", []) or []
+    next_steps = legacy_data.get("next_steps", []) or []
 
-    decisions_yaml = "\n".join([f'  - "{decision}"' for decision in decisions])
-    next_steps_yaml = "\n".join([f'  - "{step}"' for step in next_steps])
+    def escape_quotes(text):
+        return text.replace('"', '\\"')
+    
+    decisions_yaml = "\n".join([f'  - "{escape_quotes(decision)}"' for decision in decisions])
+    next_steps_yaml = "\n".join([f'  - "{escape_quotes(step)}"' for step in next_steps])
 
     if not decisions_yaml:
         decisions_yaml = '  - "Migrated from legacy session format"'
@@ -212,9 +215,9 @@ assistant: "Claude Code"
 
 ## Current Work
 ```yaml
-mode: "{legacy_data.get('mode', 'build')}"  {mode_comment}
-phase: "{legacy_data.get('phase', 'enablement')}"  {phase_comment}
-agent: "{legacy_data.get('agent', 'conductor')}"  {agent_comment}
+mode: "{legacy_data.get('mode') or 'build'}"  {mode_comment}
+phase: "{legacy_data.get('phase') or 'enablement'}"  {phase_comment}
+agent: "{legacy_data.get('agent') or 'conductor'}"  {agent_comment}
 task:
 {task_yaml}
 branch: "main"
