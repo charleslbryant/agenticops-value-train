@@ -16,7 +16,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
 from check_artifacts import check_artifacts_exist  # noqa: E402
 from check_artifacts import get_phase_artifacts  # noqa: E402
 from check_artifacts import load_active_session  # noqa: E402
-from check_artifacts import (load_pipeline_config, main,  # noqa: E402
+from check_artifacts import main  # noqa: E402
+from check_artifacts import (load_pipeline_config,  # noqa: E402
                              resolve_artifact_paths)
 
 

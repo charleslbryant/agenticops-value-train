@@ -14,7 +14,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
 # Import scripts after path modification
 from check_todo import check_unchecked_items  # noqa: E402
 from check_todo import find_active_checklist  # noqa: E402
-from check_todo import (find_active_session_file, main,  # noqa: E402
+from check_todo import main  # noqa: E402
+from check_todo import (find_active_session_file,  # noqa: E402
                         parse_active_session)
 
 

@@ -13,7 +13,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
 
 # Import scripts after path modification
 from migrate_session import detect_legacy_format  # noqa: E402
-from migrate_session import (generate_new_session_content, main,  # noqa: E402
+from migrate_session import main  # noqa: E402
+from migrate_session import (generate_new_session_content,  # noqa: E402
                              parse_json_format, parse_key_value_format,
                              parse_markdown_format, parse_yaml_frontmatter)
 
