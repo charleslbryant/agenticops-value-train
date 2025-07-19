@@ -13,16 +13,14 @@ import yaml
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
 
 # Import scripts after path modification
-from conductor_update import (  # noqa: E402
-    get_next_phase,
-    get_phase_info,
-    load_active_session,
-    load_pipeline_config,
-    main,
-    replace_yaml_section,
-    save_active_session,
-    update_session_phase,
-)
+from conductor_update import get_next_phase  # noqa: E402
+from conductor_update import get_phase_info  # noqa: E402
+from conductor_update import load_active_session  # noqa: E402
+from conductor_update import load_pipeline_config  # noqa: E402
+from conductor_update import main  # noqa: E402
+from conductor_update import replace_yaml_section  # noqa: E402
+from conductor_update import save_active_session  # noqa: E402
+from conductor_update import update_session_phase  # noqa: E402
 
 
 @pytest.mark.unit
