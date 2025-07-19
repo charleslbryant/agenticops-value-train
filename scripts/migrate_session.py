@@ -12,7 +12,7 @@ import logging
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict
+from typing import Any, Dict
 
 import yaml
 
@@ -46,7 +46,7 @@ def detect_legacy_format(content: str) -> str:
     return "unknown"
 
 
-def parse_json_format(content: str) -> Dict:
+def parse_json_format(content: str) -> Dict[str, Any]:
     """Parse JSON format legacy session."""
     try:
         data = json.loads(content)
@@ -63,7 +63,7 @@ def parse_json_format(content: str) -> Dict:
         return {}
 
 
-def parse_yaml_frontmatter(content: str) -> Dict:
+def parse_yaml_frontmatter(content: str) -> Dict[str, Any]:
     """Parse YAML frontmatter format legacy session."""
     try:
         # Split on first --- boundary
@@ -84,9 +84,9 @@ def parse_yaml_frontmatter(content: str) -> Dict:
     return {}
 
 
-def parse_markdown_format(content: str) -> Dict:
+def parse_markdown_format(content: str) -> Dict[str, Any]:
     """Parse markdown format legacy session."""
-    data = {
+    data: Dict[str, Any] = {
         "mode": "build",
         "phase": "enablement",
         "agent": "conductor",
@@ -125,9 +125,9 @@ def parse_markdown_format(content: str) -> Dict:
     return data
 
 
-def parse_key_value_format(content: str) -> Dict:
+def parse_key_value_format(content: str) -> Dict[str, Any]:
     """Parse key=value format legacy session."""
-    data = {
+    data: Dict[str, Any] = {
         "mode": "build",
         "phase": "enablement",
         "agent": "conductor",
