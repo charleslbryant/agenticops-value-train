@@ -1,8 +1,8 @@
 # AgenticOps Value Train™
 
-*This repo is a work in progres as I think about solving agentic AI engineering problmes. The repo isstill very much experimental and messy. Things may be deleted or changed at any moment, sometimes daily. Use at your own risk and share what your thinking about in AI Engineering and AgenticOps.*
+*This repo is a work in progres as we think about solving agentic AI engineering problmes. The repo isstill very much experimental and messy. Things may be deleted or changed at any moment, sometimes daily. Use at your own risk and share what your thinking about in AI Engineering and AgenticOps.*
 
-*NOTE: I started in Python, but C# is the future of this repo. I'm using Python for now because it's the most popular language for AI and ML. But I'm a C# dev till I die, so we're going there :).*
+*NOTE: We started in Python, but C# is the future of this repo. We're using Python for now because it's the most popular language for AI and ML. But @charleslbryant is a C# dev till he dies, so we're going there :).*
 
 <div align="center">
 <img src="assets/images/value-train-logo.png" alt="Value Train Logo" width="400">
