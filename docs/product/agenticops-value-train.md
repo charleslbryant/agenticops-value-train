@@ -2,9 +2,11 @@
 
 This document defines the standard roles, responsibilities, and artifacts for each Agent involved in delivering AI projects in the AgenticOps Value Train™. These agents operate as modular expert units across the AI project value stream and ML pipeline.
 
-## Pre-Engagement
+## Pipelines
 
-### Pipeline
+### Pre-Engagement
+
+#### Phase
 
 | Phase                 | Agent     | Description                                       | Goal                                                       | Outcome                                        | Artifacts               |
 |-----------------------|-----------|---------------------------------------------------|------------------------------------------------------------|------------------------------------------------|-------------------------|
@@ -14,7 +16,7 @@ This document defines the standard roles, responsibilities, and artifacts for ea
 | Scope & Pitch         | Onboarder | Define MVP scope, pricing, and delivery plan      | Land the right-sized engagement with clear value           | MVP Plan + Pricing + SOW + Pitch Deck          | SOW, Pitch Deck         |
 | Pre-Kickoff Logistics | Onboarder | Confirm legal, technical, and team alignment      | Eliminate blockers before Day 1                            | Signed SOW + DPA + Access Checklist + Contacts | Access Checklist, DPA   |
 
-### Checklist
+#### Checklist
 
 | Step                            | Agent     | Asset                                 |
 |---------------------------------|-----------|---------------------------------------|
@@ -29,7 +31,7 @@ This document defines the standard roles, responsibilities, and artifacts for ea
 | Send DPA and checklist          | Onboarder | Docs / HelloSign / Email              |
 | Finalize contacts               | Onboarder | Shared Sheet / CRM / Contract Tracker |
 
-### Artifacts
+#### Artifacts
 
 | Type      | Title                          | File Path                                         | Purpose                                                     |
 |-----------|--------------------------------|---------------------------------------------------|-------------------------------------------------------------|
@@ -47,9 +49,9 @@ This document defines the standard roles, responsibilities, and artifacts for ea
 | Comm      | Client Alignment Email         | /preengagement/communication/client-email.txt     | Confirm plan, docs, and roles before kickoff                |
 | Comm      | Internal Kickoff Email         | /preengagement/communication/internal-email.txt   | Clarify scope and agent assignments internally              |
 
-## Delivery
+### Delivery
 
-### Pipeline
+#### Phase
 
 | Phase                | Agent(s)             | Description                                                  | Goal                                    | Outcome                        | Artifacts                     |
 |----------------------|----------------------|--------------------------------------------------------------|-----------------------------------------|--------------------------------|-------------------------------|
@@ -68,7 +70,7 @@ This document defines the standard roles, responsibilities, and artifacts for ea
 | Improvement          | Improver             | Refine features, annotations, interfaces                     | Higher accuracy and less friction       | Recommendations and roadmap    | Improvement roadmap           |
 | Retraining Loop      | Improver + Lab       | Trigger retraining, run new versions, log improvements       | Sustainable model performance           | Updated model and baseline     | Retraining notebook           |
 
-### Checklist
+#### Checklist
 
 | Step                        | Agent(s)             | Asset                                 |
 |-----------------------------|----------------------|---------------------------------------|
@@ -87,7 +89,7 @@ This document defines the standard roles, responsibilities, and artifacts for ea
 | Recommend improvements      | Improver             | Post-mortem, improvement roadmap      |
 | Retrain updated model       | Improver + Lab       | Retraining plan, baseline comparison  |
 
-### Artifacts
+#### Artifacts
 
 | Type     | Title                   | File Path                             | Purpose                                  |
 |----------|-------------------------|---------------------------------------|------------------------------------------|
@@ -105,6 +107,223 @@ This document defines the standard roles, responsibilities, and artifacts for ea
 | Ops      | Error Log               | /delivery/performance/error-log.json  | Document failures for analysis           |
 | Roadmap  | Improvement Roadmap     | /delivery/improvement/roadmap.md      | Guide to next improvements               |
 | Retrain  | Retraining Notebook     | /delivery/retrain/retrain.ipynb       | Tracks next round of model tuning        |
+
+## Auto-Pilot
+
+The Autopilot Agent autonomously operates and manages how phase tickets are stored, validated, and advanced so that:
+
+-   Human operators can manually mark actions complete without merge conflicts.
+-   The Autopilot Agent can autonomously run a queue of GitHub Issues end‑to‑end.
+-   Conductor agent, pre-commit hook, and CI/CD are the gatekeeper for quality and progress.
+
+### Getting Started
+
+To run the pipeline locally:
+
+1.  Clone the repository and install dependencies.
+2.  Run:
+
+```bash
+make venv
+source venv/bin/activate
+```
+
+1.  Ensure your Issues are labeled `Task` and `auto` and are unassigned.
+2.  Start Auto-Pilot with:
+
+```bash
+/drive
+```
+
+Use `/plan` to queue up more tasks when needed.
+
+### End‑to‑End Steps
+
+| \# | Step             | Initiator                | Key Artifacts / Scripts                                                                 | Expected Outcome                                                                 |
+|----|------------------|--------------------------|-----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| 0  | Kickoff          | Operator                 | —                                                                                       | Repo scaffolded via `/kick`; Issues triaged & labelled via /plan                 |
+| 1  | Issue Select     | Auto-Pilot               | `select_next_issue.py`                                                                  | Issue chosen and self‑assigned                                                   |
+| 2  | Branch & Folder  | Auto-Pilot               | —                                                                                       | Ticket branch and folder created                                                 |
+| 3  | Session Seed     | Auto-Pilot               | `checklist.md, ACTIVE_SESSION.md`                                                       | Ticket initialized                                                               |
+| 4  | Execute Tasks    | Lab / Studio / Evaluator | Multiple phase‑specific helpers (e.g. `data_pull.py`, `train_model.py`, `run_tests.sh`) |                                                                                  |
+| 5  | CI Gate          | CI                       | `check_todo.py` • `check_artifacts.py`                                                  | Required bullets all checks and artifacts exist; pipeline green                  |
+| 6  | Merge & Finalize | Conductor                | `conductor_update.py`                                                                   | PR merged; `ACTIVE_SESSION.md.status` → `done`; next phase Issue prepared        |
+| 7  | Loop / Finish    | Auto-Pilot               | —                                                                                       | Return to Step 1 until no qualifying Issues remain; bot posts completion comment |
+
+>   Note: All Python helpers are executed in the project’s virtual environment (`venv/bin/activate`) to ensure dependency isolation.
+
+### Detailed Breakdown
+
+#### Trigger
+
+-   An operator or a cron‑triggered automated workflow can run Auto-Pilot by running the /drive command
+-   If no active phase issue exists, Auto-Pilot picks the oldest `auto` issue.
+-   Because each phase issue has its own folder and branch, Auto-Pilot can safely run in parallel or sequentially finishing one ticket, waiting for merge, then starting the next ticket, all with no merge conflicts or path collisions.
+
+#### Issue Selection (Step 1)
+
+-   Task queue is determined by
+    -   Priority order: `now` → `next` → `future`.
+    -   Filters: labels `Task` & `auto`; no assignee; state `open`.
+    -   Deterministic: oldest `created_at` wins in a priority and filter tie.
+-   Implemented by /scripts/select_next_issue.py (venv). The script returns the Issue ID or an empty string. If empty string is returned, the train is halted and Auto-Pilot stopped and the operator is given an alert message to run /plan mode to fill the task queue.
+
+#### Branch & Folder Creation (Step 2)
+
+-   Branch pattern `phase/<phase>_<issue_id>.`
+-   Create branch and checkout branch.
+-   Branch pattern is enforced by a prepare‑commit‑msg hook and push is rejected if the pattern fails.
+-   Folder pattern `tickets/<phase>_<issue_id>/` created on the new branch.
+-   Inside each phase-ticket folder:
+
+```text
+tickets/<phase>_<issue_id>/
+  artifacts/          # outputs produced by the ticket’s steps
+  ACTIVE_SESSION.md   # markdown file with session state
+  checklist.md        # markdown list – required bullets marked *
+  ticket.yml          # ticket meta data
+```
+
+-   A ticket.yml file holds meta data for the ticket.
+
+```yaml
+ticket: train_142
+issue_id: 142
+title: "Train model with HPO"
+description: "Use curated dataset to optimize model accuracy."
+
+operator: cbryant
+team: ML-Pipeline
+project: Koala-Refill-Adherence
+client: Koala Health
+prd_issue: 95
+crd_issue: 103
+
+phase: train
+stage: HPO
+mode: /drive
+status: InProgress
+
+checklist:
+  - name: select_dataset
+  - name: prepare_model_config
+  - name: run_hpo_job
+  - name: evaluate_accuracy
+  - name: update_docs
+    required: false
+
+artifacts:
+  - path: /models/model_v3.zip
+  - path: /src/train_142/model_config.json
+  - path: /docs/train_142_eval_report.md
+    required: false
+
+entry_criteria:
+  - curated dataset is available
+  - PRD approved
+
+exit_criteria:
+  - accuracy >= 90%
+  - PR merged
+
+next_phase: validate
+
+started_at: 2025-07-19T09:42:00Z
+completed_at: null
+duration_estimate: "6h"
+revenue_value: 1250.00
+effort_hours: null
+
+evaluation:
+  checklist:
+    status: false
+    eval: checklist-complete.md
+    notes: "evaluate_accuracy not marked complete"
+
+  artifacts:
+    status: false
+    eval: artifact-check.md
+    notes: "Missing model_config.json"
+
+  entry_criteria:
+    status: true
+    eval: entry-check.md
+    required: false
+
+  exit_criteria:
+    status: false
+    eval: exit-check.py
+
+  issue_closed:
+    status: false
+    eval: issue-status-check.py
+
+  labels_valid:
+    status: true
+    eval: label-validation.json
+
+  ready_for_next_phase:
+    status: false
+    eval: transition.yml
+```
+
+#### Session Initiation (Step 3)
+
+/begin
+
+#### Task Execution & Checklist Ticking (Step 4)
+
+-   Each unchecked bullet maps to a concrete action.
+-   If an action fails (e.g., script error, missing dependency), Auto-Pilot logs the error in the ticket folder and re-attempts later.
+-   After three failures, the action is marked as blocked and Auto-Pilot pauses, requiring operator intervention or manual retry.
+-   Each action calls a skill, tool, MCP, A2A, runs a notebook, executes a script.
+-   Each successful action results in stage → pre-commit → commit → push.
+-   Auto-Pilot continues pushing until all required bullets are checked and artifacts exist.
+-   Once the ticket meets every requirement, Auto-Pilot opens a PR.
+-   CI validates the completed ticket.
+-   If CI fails, Conductor run /pause to halt Auto-Pilot and runs /fix on the CI action.
+-   If CI passes, Conductor run /merge and moves to next ticket.
+-   Scripts (e.g., `data_pull.py`) are called inside the venv and record outputs to `artifacts/`.
+
+#### CI Gate (Step 5)
+
+`ci.yml`
+
+-   Checkout repo (fetch‑depth: 0 for diff).
+-   make test
+    -   Run lint and unit tests.
+-   venv python scripts/check_todo.py
+    -   No required action remain.
+    -   No previously checked action is reverted.
+-   venv python scripts/check_artifacts.py
+    -   Ensures artifacts listed in `ticket.yml` exist in the ticket folder.
+-   All checks must pass for PR merge.
+
+#### Finalization & Next Phase (Step 6)
+
+-   On PR merge, `conductor_update.py` (venv) sets `status: done` in `ACTIVE_SESSION.md` and bumps the pipeline state.
+-   Conductor creates the next phase branch + ticket if another Issue awaits.
+-   Trigger: push to main that modifies any `checklist.md`.
+-   If the modified checklist’s `status` became done:
+    -   Updates `docs/session-context/ACTIVE_SESSION.md` with next phase, mode & timestamp.
+    -   Creates new branch `phase/<next_phase>_<next_issue>` with skeleton checklist folder.
+    -   Pushes branch+commit; opens draft PR targeting main.
+
+*No folder move to* `_archive/`*; finished lists stay where they are.*
+
+#### Drive Completion (Step 7)
+
+-   If `select_next_issue.py` returns nothing, Auto-Pilot posts an alert:
+
+>   🚂 Drive complete — task queue empty. Run `/plan` to create or label new Issues with Task and auto (use priority labels `now` → `next` → `future`). The train halts until the operator refills the queue.
+
+### Operator Responsibilities
+
+| When                        | Action                                                                 |
+|-----------------------------|------------------------------------------------------------------------|
+| Before running Auto-Pilot   | Label Issues correctly and leave them un‑assigned.                     |
+| While Auto-Pilot runs       | Optionally monitor PRs; intervene with `/pause` or `/abort` if needed. |
+| After Auto-Pilot completion | Use `/plan` to create or re‑label tasks in the queue for the next run. |
 
 ## Agents
 
@@ -193,7 +412,32 @@ A system-level interaction, interface, or automation that enables coordination o
 -   Includes handoffs, alerts, task routing, retry policies, or chat interfaces.
 -   Can be human-mediated or machine-driven (e.g., orchestrated by the Conductor).
 
-## Workshop
+### Asset Registry
+
+Add a simple YAML or markdown table (one per category) under `/docs/rules/asset-registry.md`. Agents reference it instead of hard-coding paths in every mode header.
+
+Example skeleton:
+
+```yaml
+skills:
+  architecture_design: Studio, Conductor
+  data_profiling: Lab
+
+tools:
+  data_profiler: Lab
+  mlflow_tracker: Lab, Evaluator
+  deployment_pipeline: Studio, Ops
+
+mcps:
+  mcp_discovery_v1: All
+  mcp_review_v2: Evaluator
+
+a2a:
+  conductor_task_router: Conductor
+  eval_perf_watcher: Evaluator, Improver
+```
+
+## Workshops
 
 | Phase               | Goal                                         |
 |---------------------|----------------------------------------------|
@@ -265,8 +509,6 @@ For each session:
 
 ## Modes
 
-### What a “Mode”
-
 A Mode is a bounded operating context with its own:
 
 -   Front-matter
@@ -279,8 +521,6 @@ A Mode is a bounded operating context with its own:
 -   Transitions
 
 A Mode is *not* the same as a pipeline phase; it is a controlled working state an agent enters to complete a focused slice of work.
-
-### Proposed Mode Set
 
 | Mode Command | Agents               | Purpose                                                                         |
 |--------------|----------------------|---------------------------------------------------------------------------------|
@@ -298,7 +538,7 @@ Each mode inherits a common shell but has its own checklist and transition map.
 
 ### Mode Template
 
-```Code Language
+```Code
 ---
 description: <one-sentence purpose>
 allowed-tools: Read, Write, TodoWrite, Bash(git:*), Bash(gh:*), Bash(test:*)
@@ -332,7 +572,7 @@ n. Ready for mode switch *
 * `/other-mode`,`/another-mode`
 ```
 
-### Mapping Modes to Pipeline Phases
+### Modes to Phases Mapping
 
 | Pipeline Phase       | Active Mode         |
 |----------------------|---------------------|
@@ -351,7 +591,7 @@ n. Ready for mode switch *
 | Improvement          | /improve            |
 | Retraining Loop      | /improve, /build    |
 
-### Checklist Seeds for the Remaining Modes
+### Other Modes
 
 -   /scope: Finalise SOW, budget, pitch deck; push artifacts; get Conductor approval.
 -   /design: Write model flow diagram, feature spec, ADRs; review security implications.
@@ -361,27 +601,96 @@ n. Ready for mode switch *
 -   /operate: Verify monitors live; update cost dashboards; produce weekly performance note.
 -   /improve: Open issues for failure themes; draft improvement roadmap; farm new training data.
 
-### Assets: Skills, Tools, MCP, A2A Registry
+## Scripts
 
-Add a simple YAML or markdown table (one per category) under `/docs/rules/asset-registry.md`. Agents reference it instead of hard-coding paths in every mode header.
+-   All Python scripts are executed in the project’s virtual environment (`venv/bin/activate`) to ensure dependency isolation.
+-   To initialize your environment locally, run:
 
-Example skeleton:
-
-```yaml
-skills:
-  architecture_design: Studio, Conductor
-  data_profiling: Lab
-
-tools:
-  data_profiler: Lab
-  mlflow_tracker: Lab, Evaluator
-  deployment_pipeline: Studio, Ops
-
-mcps:
-  mcp_discovery_v1: All
-  mcp_review_v2: Evaluator
-
-a2a:
-  conductor_task_router: Conductor
-  eval_perf_watcher: Evaluator, Improver
+```bash
+make venv
+source venv/bin/activate
 ```
+
+-   All scripts are unit tested by test script in `/tests/scripts/`
+
+| Script                     | Purpose                                                            | Trigger           |
+|----------------------------|--------------------------------------------------------------------|-------------------|
+| `select_next_issue.py`     | Select issue                                                       | Auto-Pilot        |
+| `check_todo.py`            | Validate checklist monotonicity & required ticks                   | CI                |
+| `check_artifacts.py`       | Verify artifacts presence                                          | CI                |
+| `check_session.py`         | Verify values between base & head                                  | CI                |
+| `conductor_update.py`      | Mark phase done & open next                                        | Post‑merge Action |
+| `validate_active_state.py` | Validate `phase`, `mode`, `status` against `/docs/rules/enums.yml` | CI                |
+
+## Pre‑Commit Hooks
+
+-   branch‑name‑check.sh – validates `phase/<slug>_<id>`. To install it locally:
+
+```bash
+pre-commit install --hook-type prepare-commit-msg
+```
+
+-   size‑guard.sh – rejects new blobs \> 5 MB (unless in Git LFS).
+
+| Guard‑rail           | Implementation                                                                                                                                           | Location                           |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
+| Git LFS routing      | Add `.gitattributes` so heavy formats (`*.ipynb`, `*.pptx`, `*.csv`, `*.parquet`, `*.onnx`, `*.pth`) are stored via LFS, not Git history.                | repo root                          |
+| CI size gate         | Workflow `size-check.yml` aborts PR if any new blob \> 5 MB and not LFS‑tracked.                                                                         | `.github/workflows/size-check.yml` |
+| Pre‑commit size hook | Local script warns dev if adding files \> 1 MB without LFS pointer.                                                                                      | `.pre-commit-config.yml`           |
+| Artifact folder rule | Only text / small images (\<500 KB) belong in `artifacts/`. Heavy assets go to cloud store (S3 / Azure Blob) and are referenced by URL in the checklist. | Documentation rule                 |
+
+>   CI fails if size gate trips, prompting contributor to use LFS or external storage.
+
+-   After successful action, Auto-Pilot edits `checklist.md`, stages, and commits.
+
+## Guard‑Rails
+
+| Layer                   | Mechanism / Check                                                                                         | Tool / What it prevents                   |
+|-------------------------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------|
+| Path protection         | `checklists/**` & `ACTIVE_SESSION.md` CODEOWNED by **@conductor-bot**; branch protection requires PR & CI | Blocks direct pushes and rogue edits      |
+| Single‑writer rule      | Only Conductor‑bot commits to `ACTIVE_SESSION.md`; humans read‑only                                       | Eliminates human‑human conflicts          |
+| Phase branch naming     | Each phase branch updates only its own ticket folder                                                      | Parallel phase work doesn’t collide       |
+| Bot commit queue        | Conductor re‑bases & force‑pushes if `main` advanced                                                      | Prevents bot‑bot races                    |
+| CI gate (session)       | `check_session.py` fails if conflicting phase values between base & head                                  | Prevents logical divergence               |
+| Monotonic diff          | A checked bullet must never revert to unchecked                                                           | `check_todo.py` guards against regression |
+| Required boxes          | All bullets marked `*` must be checked                                                                    | `check_todo.py` ensures completeness      |
+| Artifact check          | Expected artifacts (from `pipeline.yml`) must exist                                                       | `check_artifacts.py` verifies outputs     |
+| Freeze finished tickets | If `status: done` ticket is modified CI fails                                                             | `check_todo.py` locks history             |
+| Large‑file guard        | PR fails if new blob \> 5 MB and not in Git LFS                                                           | `size-check.yml` prevents repo bloat      |
+
+## Recovery Protocol
+
+1.  CI detects conflict → marks PR red with explanation.
+2.  Operator runs `/abort` or re‑bases their branch.
+3.  Conductor bot regenerates `ACTIVE_SESSION.md` based on latest `main` + their phase checklist.
+
+## FAQ
+
+| Question                                                 | Answer                                                                                                   |
+|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Why not store checklists in Issues?                      | Simpler pipeline; CI doesn’t need GitHub API tokens; fewer race conditions.                              |
+| Will folders crowd the repo?                             | Plain‑text checklists are tiny (\< 2 KB). Heavy artifacts should go to Git LFS or external storage.      |
+| Can we restart a failed phase?                           | Re-open the Issue or create a new one with a new ID. The original folder remains frozen for audit trail. |
+| What if someone force-pushes?                            | Branch protection (including for admins) prevents unauthorized force-pushes to `main`.                   |
+| How do I run the pipeline locally without creating a PR? | Use `/drive --local` to run scripts and CI validations without opening or pushing a PR.                  |
+| What if Auto-Pilot selects an Issue I want to work on?   | Assign yourself to the Issue. Auto-Pilot only picks unassigned issues labeled `auto`.                    |
+| CI failed due to large file size. What now?              | Use `git lfs track <file>`, recommit, and push using `--force-with-lease`.                               |
+| How do I add a new required checklist bullet type?       | Edit `/docs/rules/templates/checklist.yml` and update related tests in `check_todo.py`.                  |
+
+## Glossary
+
+| Term            | Definition                                                                                                                                    |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Ticket          | The combination of `checklist.md`, `ACTIVE_SESSION.md`, and `artifacts/` for a specific Phase × Issue.                                        |
+| Required bullet | An item flagged with \*; pipeline cannot advance until all required items are checked. Only items marked with \* are required for CI to pass. |
+| Operator        | Human users who triage and prioritize issues and may switch modes manually.                                                                   |
+| Phase           | A defined step in the value delivery lifecycle such as plan, build, test, train, validate, release.                                           |
+| Mode            | A command (e.g., `/build`, `/evaluate`) that activates a specific checklist, agents, and workflow for a phase.                                |
+| Conductor       | The agent that coordinates pipeline state, merges PRs, and creates next phase tickets.                                                        |
+| Lab             | Agent responsible for data profiling, extraction, cleaning, and model experimentation.                                                        |
+| Studio          | Agent that designs models, architecture, and production logic.                                                                                |
+| Evaluator       | Agent that defines success metrics and validates quality and performance.                                                                     |
+| Improver        | Agent that handles error correction, feedback loops, retraining cadence, and continuous model improvement.                                    |
+| Session         | A single run of Auto-Pilot, starting from kickoff and ending at completion or pause.                                                          |
+| Ticket folder   | The folder named `tickets/<phase>_<issue_id>/` that holds a ticket’s session, checklist, and artifacts.                                             |
+| Checklist       | The markdown list of actions to complete for a phase; lives in `checklist.md`.                                                                |

@@ -4,7 +4,16 @@ This document captures tasks, ideas, and changes to review during `/plan` mode s
 
 ## Pending Tasks to Create Issues For
 
-*No pending tasks - all items have been converted to GitHub issues.*
+- Run flake8, black, and isort on relevant python files before committing. Update the `docs/rules/git-workflow.md` file to reflect the new process.
+- Always run python file in venv. Update CLAUDE.md to reflect the new process.
+- Run the same CI/CD pipeline as we do in GitHub Actions (`.github/workflows/ci.yml`). Update the `docs/rules/git-workflow.md` file to reflect the new process.
+  source venv/bin/activate
+  pip install flake8 black isort mypy types-PyYAML
+  flake8 scripts/ tests/ --max-line-length=88 --extend-ignore=E203,W503
+  black --check scripts/ tests/
+  isort --check-only scripts/ tests/
+  mypy scripts/
+- Add "meta" as a GitHub label for issues that are not counted towards flow metrics. Update the `docs/rules/task-management.md` file to reflect the new process.
 
 ## Recently Created Issues
 
