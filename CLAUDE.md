@@ -117,7 +117,7 @@ make test          # Run test suite (to be configured)
 - `/docs/agenticops-value-train.md` - Complete agent roles, pipeline stages, and artifacts
 - `/docs/ml-pipeline.md` - Detailed ML pipeline methodology with DiscoverTec case study
 - `/docs/boot-up.md` - Master checklist for implementing the Value Train infrastructure
-- `/docs/guides/prompt-engineering.md` - AgenticOps prompt engineering methodology
+- `/docs/developer-guides/prompt-engineering.md` - AgenticOps prompt engineering methodology
 
 ### Planning Framework (AOPF)
 The AgenticOps Planning Framework emphasizes:

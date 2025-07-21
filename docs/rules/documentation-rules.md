@@ -19,6 +19,23 @@
   - Create new guides for new user workflows
   - Update CLI help text and command descriptions
 
+### Architecture Decision Records (ADRs)
+- **Requirement**: Any architectural decision or significant design choice
+- **Location**: `/docs/architecture/adr/`
+- **Content**: Follow ADR template with context, decision, consequences
+- **Triggers**:
+  - Technology stack changes (frameworks, databases, tools)
+  - Architectural pattern decisions (clean architecture, CQRS, etc.)
+  - Integration approach decisions (APIs, messaging, data flow)
+  - Security and compliance decisions
+  - Performance and scalability decisions
+  - Development process and tooling decisions
+- **Actions**:
+  - Create new ADR for new architectural decisions
+  - Update existing ADR if decision evolves or is superseded
+  - Reference relevant ADRs in code comments and documentation
+  - Include ADR review in architectural change PRs
+
 ## Documentation Standards
 
 ### Content Requirements
@@ -46,3 +63,10 @@ For features requiring documentation:
 - [ ] Test documentation accuracy during feature testing
 - [ ] Include documentation review in PR checklist
 - [ ] Update existing guides that reference the feature
+
+For architectural decisions:
+- [ ] Identify if change requires new ADR or update to existing ADR
+- [ ] Create ADR using template with clear context and rationale
+- [ ] Document consequences and trade-offs of the decision
+- [ ] Reference related ADRs and update cross-references
+- [ ] Include ADR in architectural change PR review
