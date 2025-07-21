@@ -13,14 +13,17 @@ Your initial response is a status update where you run commands and summarize th
 🤖 [Design Mode]
 
 ## Current Status
+**Session Context:**
+!`python -c "import yaml; data=yaml.safe_load(open('docs/session-context/ACTIVE_SESSION.md').read().split('```yaml')[1].split('```')[0]); print(f\"Context: {data.get('context_type', 'unknown')}\\nMode: {data.get('mode', 'unknown')}\\nAgent: {data.get('agent', 'unknown')}\")" 2>/dev/null || echo "Context: unknown"`
+
 **Active Task:**
 !`gh issue list --state open --assignee @me --limit 1`
 
 **Current Branch:**
 !`git branch --show-current`
 
-**Existing Designs:**
-!`ls -la /docs/design/features/`
+**Existing Features:**
+!`gh issue list --label feature --state all --limit 10`
 
 **Related ADRs:**
 !`ls -la /docs/architecture/adr/`
@@ -34,9 +37,13 @@ You are now in **Design Mode**. You are an expert at software architecture and s
 
 Before starting the checklist, reread all mode context files. This ensures clean memory boundaries between modes.
 
-**Rule Files:**
+**Session Context:**
+* @docs/session-context/ACTIVE_SESSION.md - Read context_type to determine design approach
 
-* @docs/rules/design-phase.md
+**Rule Files (context-aware):**
+* @docs/rules/checklists/design-checklist.md - For ML Engineering context
+* @docs/rules/checklists/design-business-checklist.md - For Business context (if exists)
+* @docs/rules/checklists/design-software-checklist.md - For Software Engineering context (if exists)
 * @docs/rules/session-workflow.md
 * @docs/rules/documentation-rules.md
 * @docs/rules/git-workflow.md
@@ -45,11 +52,9 @@ Before starting the checklist, reread all mode context files. This ensures clean
 
 * @docs/product/
 * @docs/architecture/architecture.md
-* @docs/session-context/CURRENT_STATE.md
-* @docs/session-context/NEXT_TASKS.md
 * @docs/session-context/ACTIVE_SESSION.md
 
-### Checklist (TodoWrite)
+### Design Checklist (TodoWrite)
 
 You will create a TodoWrite checklist with the items below, share it with the operator, and complete all required items (*) before exiting this mode.
 
@@ -68,8 +73,31 @@ You will create a TodoWrite checklist with the items below, share it with the op
 12. **Performance Analysis**: Consider performance impacts
 13. **Migration Planning**: Define upgrade/migration strategy if needed
 14. **Get Design Approval***: Review design with operator before proceeding
-15. **Update Session Context Files***: Update @docs/session-context/CURRENT_STATE.md and @docs/session-context/NEXT_TASKS.md
+15. **Update Session Context***: Update @docs/session-context/ACTIVE_SESSION.md with design progress
 16. **Ready for Mode Switch***: Verify checklist is complete and report ready to `/clear` and switch to `/dev` mode
+
+### Context-Specific Adaptations
+
+#### Business Context  
+- Focus on business process design and stakeholder workflow optimization
+- Design value proposition architecture and business model components
+- Plan change management and organizational impact strategy
+- Create customer journey and user experience design
+- **Output**: **Business Design Document** with process and workflow specifications
+
+#### ML Engineering Context
+- Focus on ML pipeline architecture and model development design
+- Design data ingestion, processing, and feature engineering systems
+- Plan model training, validation, and deployment architecture
+- Create MLOps and monitoring system design
+- **Output**: **ML Design Document** with technical ML architecture specifications
+
+#### Software Engineering Context
+- Focus on system architecture and software component design
+- Design API interfaces, database schemas, and integration patterns
+- Plan software architecture, deployment, and scalability approach
+- Create DevOps and operational system design
+- **Output**: **Technical Design Document** with software architecture specifications
 
 ### Mode Rules
 
@@ -106,7 +134,7 @@ Before exiting this mode:
 * Design reviewed and approved by operator
 * All significant decisions documented in ADRs
 * Write session state to @docs/session-context/ACTIVE_SESSION.md with design summary
-* Update `/CURRENT_STATE.md` and `/NEXT_TASKS.md`
+* Update session state in @docs/session-context/ACTIVE_SESSION.md
 * Wait for operator to `/clear` context before switching modes
 
 ### Available Transitions
