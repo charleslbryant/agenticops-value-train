@@ -14,7 +14,7 @@ Your initial response is a status update where you run commands and summarize th
 
 ## Current Status
 **Session Context:**
-!`python -c "import yaml; data=yaml.safe_load(open('docs/session-context/ACTIVE_SESSION.md').read().split('```yaml')[1].split('```')[0]); print(f\"Context: {data.get('context_type', 'unknown')}\\nMode: {data.get('mode', 'unknown')}\\nAgent: {data.get('agent', 'unknown')}\")" 2>/dev/null || echo "Context: unknown"`
+!`head -20 docs/session-context/ACTIVE_SESSION.md 2>/dev/null || echo "No active session"`
 
 **Active Task:**
 !`gh issue list --state open --assignee @me --limit 1`
@@ -26,7 +26,7 @@ Your initial response is a status update where you run commands and summarize th
 !`gh issue list --label feature --state all --limit 10`
 
 **Related ADRs:**
-!`ls -la /docs/architecture/adr/`
+!`ls -la docs/architecture/adr/`
 ```
 
 ## Workflow
