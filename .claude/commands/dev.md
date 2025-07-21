@@ -33,16 +33,16 @@ Before starting the checklist, reread all mode context files. This ensures clean
 
 **Rule Files:**
 
-* `/docs/rules/session-workflow.md`
-* `/docs/rules/git-workflow.md`
-* `/docs/rules/check-in-formats.md`
-* `/docs/rules/documentation-rules.md`
+* @docs/rules/session-workflow.md
+* @docs/rules/git-workflow.md
+* @docs/rules/check-in-formats.md
+* @docs/rules/documentation-rules.md
 
 **Session Context Files:**
 
-* `/docs/session-context/CURRENT_STATE.md`
-* `/docs/session-context/NEXT_TASKS.md`
-* `/docs/session-context/ACTIVE_SESSION.md`
+* @docs/session-context/CURRENT_STATE.md
+* @docs/session-context/NEXT_TASKS.md
+* @docs/session-context/ACTIVE_SESSION.md
 
 ### Checklist (TodoWrite)
 
@@ -57,7 +57,7 @@ You will create a TodoWrite checklist with the items below, share it with the op
 6. **Commit***: Commit changes with proper message format
 7. **Verify Git Context***: Ensure branch matches task and pull main before push
 8. **Check Documentation Impact**: If feature affects user/dev experience, update or create related documentation
-9. **Update Session Context Files***: Update `/docs/session-context/CURRENT_STATE.md` and `/NEXT_TASKS.md` to reflect current progress and remaining priorities
+9. **Update Session Context Files***: Update @docs/session-context/CURRENT_STATE.md and @docs/session-context/NEXT_TASKS.md to reflect current progress and remaining priorities
 10. **Ready for Mode Switch***: Verify checklist is complete and report ready to `/clear` and switch to `/deliver` or `/plan` mode
 
 ### Mode Rules
@@ -72,7 +72,7 @@ You will create a TodoWrite checklist with the items below, share it with the op
 
 Before exiting this mode:
 
-* Write session state to `/docs/session-context/ACTIVE_SESSION.md` with completed task ID, final commit hash, and work summary
+* Write session state to @docs/session-context/ACTIVE_SESSION.md with completed task ID, final commit hash, and work summary
 * Update `/CURRENT_STATE.md` and `/NEXT_TASKS.md`
 * Wait for operator to `/clear` context before switching modes
 

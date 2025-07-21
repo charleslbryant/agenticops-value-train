@@ -36,18 +36,18 @@ Before starting the checklist, reread all mode context files. This ensures clean
 
 **Rule Files:**
 
-* `/docs/rules/design-phase.md`
-* `/docs/rules/session-workflow.md`
-* `/docs/rules/documentation-rules.md`
-* `/docs/rules/git-workflow.md`
+* @docs/rules/design-phase.md
+* @docs/rules/session-workflow.md
+* @docs/rules/documentation-rules.md
+* @docs/rules/git-workflow.md
 
 **Session Context Files:**
 
-* `/docs/product/`
-* `/docs/architecture/architecture.md`
-* `/docs/session-context/CURRENT_STATE.md`
-* `/docs/session-context/NEXT_TASKS.md`
-* `/docs/session-context/ACTIVE_SESSION.md`
+* @docs/product/
+* @docs/architecture/architecture.md
+* @docs/session-context/CURRENT_STATE.md
+* @docs/session-context/NEXT_TASKS.md
+* @docs/session-context/ACTIVE_SESSION.md
 
 ### Checklist (TodoWrite)
 
@@ -58,17 +58,17 @@ You will create a TodoWrite checklist with the items below, share it with the op
 2. **Research Existing Code***: Analyze current codebase for patterns, dependencies, constraints
 3. **Architecture Analysis**: Identify impacted components and systems
 4. **Design Solution***: Create technical approach addressing all requirements
-5. **Document Design***: Create feature design document using templates in `/docs/design/features/`
+5. **Document Design***: Create feature design document using templates in @docs/design/features/
 6. **Consider Alternatives**: Document alternative approaches and trade-offs
 7. **Define Test Strategy***: Specify testing approach for the solution
 8. **Review Dependencies**: Identify external dependencies and risks
 9. **Create/Update ADRs**: Document significant architecture decisions
-10. **API Design**: Create API design document if applicable using template in `/docs/design/features/`
+10. **API Design**: Create API design document if applicable using template in @docs/design/features/
 11. **Security Review**: Address security implications
 12. **Performance Analysis**: Consider performance impacts
 13. **Migration Planning**: Define upgrade/migration strategy if needed
 14. **Get Design Approval***: Review design with operator before proceeding
-15. **Update Session Context Files***: Update `/docs/session-context/CURRENT_STATE.md` and `/NEXT_TASKS.md`
+15. **Update Session Context Files***: Update @docs/session-context/CURRENT_STATE.md and @docs/session-context/NEXT_TASKS.md
 16. **Ready for Mode Switch***: Verify checklist is complete and report ready to `/clear` and switch to `/dev` mode
 
 ### Mode Rules
@@ -83,8 +83,8 @@ You will create a TodoWrite checklist with the items below, share it with the op
 ### Design Artifacts
 
 Required outputs:
-1. Feature design document in `/docs/design/features/feat-xxxx-[feature-name].md`
-2. API design document in `/docs/design/features/api-xxxx-[api-name].md` (if applicable)
+1. Feature design document in @docs/design/features/feat-xxxx-[feature-name].md
+2. API design document in @docs/design/features/api-xxxx-[api-name].md (if applicable)
 3. Updated ADRs for significant architectural decisions
 4. Test strategy documentation
 
@@ -94,8 +94,8 @@ Required outputs:
 - Use lowercase, hyphenated naming consistent with ADR format
 
 ### Design Templates
-- **Feature Design**: Copy `/docs/design/features/feature-design-template.md`
-- **API Design**: Copy `/docs/design/features/api-design-template.md`
+- **Feature Design**: Copy @docs/design/features/feature-design-template.md
+- **API Design**: Copy @docs/design/features/api-design-template.md
 - **Status Format**: Use ADR-style status: **Accepted** | Proposed | Deprecated | Superseded
 
 ### Mode Exit Requirement
@@ -105,7 +105,7 @@ Before exiting this mode:
 * Design document completed and saved
 * Design reviewed and approved by operator
 * All significant decisions documented in ADRs
-* Write session state to `/docs/session-context/ACTIVE_SESSION.md` with design summary
+* Write session state to @docs/session-context/ACTIVE_SESSION.md with design summary
 * Update `/CURRENT_STATE.md` and `/NEXT_TASKS.md`
 * Wait for operator to `/clear` context before switching modes
 

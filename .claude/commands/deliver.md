@@ -36,17 +36,17 @@ Before starting the checklist, reread all mode context files. This ensures clean
 
 **Rule Files:**
 
-* `/docs/rules/git-workflow.md`
-* `/docs/rules/documentation-rules.md`
-* `/docs/rules/check-in-formats.md`
+* @docs/rules/git-workflow.md
+* @docs/rules/documentation-rules.md
+* @docs/rules/check-in-formats.md
 
 **Session Context Files:**
 
-* `/docs/product/`
-* `/docs/architecture.md`
-* `/docs/session-context/CURRENT_STATE.md`
-* `/docs/session-context/NEXT_TASKS.md`
-* `/docs/session-context/ACTIVE_SESSION.md`
+* @docs/product/
+* @docs/architecture.md
+* @docs/session-context/CURRENT_STATE.md
+* @docs/session-context/NEXT_TASKS.md
+* @docs/session-context/ACTIVE_SESSION.md
 
 ### Checklist (TodoWrite)
 
@@ -75,7 +75,7 @@ You will create a TodoWrite checklist with the items below, share it with the op
 
 ### Mode Rules
 * **No New Work**: Only completion and delivery activities
-* **Git Rules Mandatory**: Follow `/docs/rules/git-workflow.md`
+* **Git Rules Mandatory**: Follow @docs/rules/git-workflow.md
 * **Documentation Required**: Ensure all impacted documentation is up to date
 * **Clean Exit**: Leave the project in a clean and up-to-date state
 
@@ -83,7 +83,7 @@ You will create a TodoWrite checklist with the items below, share it with the op
 
 Before exiting this mode:
 
-* Update `/docs/session-context/ACTIVE_SESSION.md` with delivery summary, PR link, and any remaining tasks
+* Update @docs/session-context/ACTIVE_SESSION.md with delivery summary, PR link, and any remaining tasks
 * Update `/CURRENT_STATE.md` and `/NEXT_TASKS.md`
 * Wait for operator to `/clear` context before switching modes
 

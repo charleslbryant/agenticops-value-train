@@ -36,14 +36,14 @@ Before starting the checklist, reread all mode context files. This ensures clean
 
 **Rule Files:**
 
-* `/docs/rules/check-in-formats.md`
-* `/docs/rules/documentation-rules.md`
+* @docs/rules/check-in-formats.md
+* @docs/rules/documentation-rules.md
 
 **Session Context Files:**
 
-* `/docs/session-context/CURRENT_STATE.md`
-* `/docs/session-context/NEXT_TASKS.md`
-* `/docs/session-context/ACTIVE_SESSION.md`
+* @docs/session-context/CURRENT_STATE.md
+* @docs/session-context/NEXT_TASKS.md
+* @docs/session-context/ACTIVE_SESSION.md
 
 ### QA Checklist (TodoWrite)
 
@@ -69,7 +69,7 @@ You will create a TodoWrite checklist with the items below, share it with the op
 
 Before exiting this mode:
 
-* Update `/docs/session-context/ACTIVE_SESSION.md` with QA notes and validation summary
+* Update @docs/session-context/ACTIVE_SESSION.md with QA notes and validation summary
 * Update `/CURRENT_STATE.md` and `/NEXT_TASKS.md` as needed
 * Wait for operator to `/clear` context before switching modes
 

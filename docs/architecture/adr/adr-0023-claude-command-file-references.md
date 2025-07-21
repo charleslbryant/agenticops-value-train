@@ -19,15 +19,21 @@ Examples from documentation:
 - `Review the implementation in @src/utils/helpers.js`
 - `Compare @src/old-version.js with @src/new-version.js`
 
+**Important**: @ paths must be used outside of markdown code formatting (backticks). The documentation shows @ references in plain text, not within inline code blocks.
+
 ## Decision
 We will update all file references in our Claude commands to use the `@` prefix convention as specified in Claude Code documentation.
 
 ### File Reference Standards
-- **Rule Files**: `@/docs/rules/session-workflow.md`
-- **Session Context**: `@/docs/session-context/ACTIVE_SESSION.md`
-- **Templates**: `@/docs/templates/opportunity-brief.md`
-- **Product Documentation**: `@/docs/product/`
-- **Architecture Documents**: `@/docs/architecture/`
+- **Rule Files**: @docs/rules/session-workflow.md
+- **Session Context**: @docs/session-context/ACTIVE_SESSION.md
+- **Templates**: @docs/templates/opportunity-brief.md
+- **Product Documentation**: @docs/product/
+- **Architecture Documents**: @docs/architecture/
+
+**Critical**: 
+- @ paths must NOT be wrapped in backticks or code formatting - they must be in plain text to function properly
+- @ paths should NOT include a leading slash - use `@docs/` not `@/docs/` (following Claude Code documentation examples)
 
 ### Implementation Approach
 1. Update all existing Claude commands to use `@` paths

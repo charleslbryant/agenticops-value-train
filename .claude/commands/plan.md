@@ -36,18 +36,18 @@ Before starting the checklist, reread all mode context files. This ensures clean
 
 **Rule Files:**
 
-* `/docs/rules/task-management.md`
-* `/docs/rules/check-in-formats.md`
-* `/docs/rules/documentation-rules.md`
-* `/docs/rules/git-workflow.md`
+* @docs/rules/task-management.md
+* @docs/rules/check-in-formats.md
+* @docs/rules/documentation-rules.md
+* @docs/rules/git-workflow.md
 
 **Session Context Files:**
 
-* `/docs/product/`
-* `/docs/architecture.md`
-* `/docs/session-context/CURRENT_STATE.md`
-* `/docs/session-context/NEXT_TASKS.md`
-* `/docs/session-context/ACTIVE_SESSION.md`
+* @docs/product/
+* @docs/architecture.md
+* @docs/session-context/CURRENT_STATE.md
+* @docs/session-context/NEXT_TASKS.md
+* @docs/session-context/ACTIVE_SESSION.md
 
 ### Checklist (TodoWrite)
 
@@ -64,7 +64,7 @@ You will create a TodoWrite checklist with the items below, share it with the op
 8. **Validate Scope**: Ensure tasks align with CRD goals
 9. **Review Branch Scope**: Confirm current branch matches planning context (if applicable)
 10. **Select Next Task**: Choose single task for immediate work
-11. **Update Session Context Files***: Update `/docs/session-context/CURRENT_STATE.md` and `/NEXT_TASKS.md` to reflect updated planning state
+11. **Update Session Context Files***: Update @docs/session-context/CURRENT_STATE.md and @docs/session-context/NEXT_TASKS.md to reflect updated planning state
 12. **Ready for Mode Switch***: Verify checklist is complete and report ready to `/clear` and switch to `/design` or `/deliver` mode
 
 ### Mode Rules
@@ -81,7 +81,7 @@ You will create a TodoWrite checklist with the items below, share it with the op
 
 Before exiting this mode:
 
-* Write session state to `/docs/session-context/ACTIVE_SESSION.md` with selected PRD/CRD/task and planning notes
+* Write session state to @docs/session-context/ACTIVE_SESSION.md with selected PRD/CRD/task and planning notes
 * Update `/CURRENT_STATE.md` and `/NEXT_TASKS.md`
 * Wait for operator to `/clear` context before switching modes
 

@@ -33,15 +33,15 @@ Before starting the checklist, reread all mode context files. This ensures clean
 
 **Rule Files:**
 
-* `@/docs/rules/session-workflow.md`
-* `@/docs/rules/task-management.md`
-* `@/docs/rules/documentation-rules.md`
-* `@/docs/product/`
+* @docs/rules/session-workflow.md
+* @docs/rules/task-management.md
+* @docs/rules/documentation-rules.md
+* @docs/product/
 
 **Session Context Files:**
 
-* `@/docs/session-context/CURRENT_STATE.md`
-* `@/docs/session-context/ACTIVE_SESSION.md`
+* @docs/session-context/CURRENT_STATE.md
+* @docs/session-context/ACTIVE_SESSION.md
 
 ### Extract Checklist (TodoWrite)
 

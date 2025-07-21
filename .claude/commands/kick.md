@@ -71,14 +71,14 @@ Before starting the checklist, reread all mode context files. This ensures clean
 
 **Rule Files:**
 
-* `/docs/rules/session-workflow.md`
-* `/docs/rules/documentation-rules.md`
-* `/docs/rules/git-workflow.md`
+* @docs/rules/session-workflow.md
+* @docs/rules/documentation-rules.md
+* @docs/rules/git-workflow.md
 
 **Template Files:**
 
-* `/docs/product/`
-* `/docs/architecture/`
+* @docs/product/
+* @docs/architecture/
 
 ### Checklist (TodoWrite)
 
@@ -160,7 +160,7 @@ Before exiting this mode:
 
 * All template warnings removed from customized files
 * Operator approval on all customizations
-* Write session state to `/docs/session-context/ACTIVE_SESSION.md` with customization summary
+* Write session state to @docs/session-context/ACTIVE_SESSION.md with customization summary
 * Update `/CURRENT_STATE.md` with project setup completion
 * Wait for operator to `/clear` context before switching modes
 
