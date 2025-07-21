@@ -33,15 +33,15 @@ Before starting the checklist, reread all mode context files. This ensures clean
 
 **Rule Files:**
 
-* `/docs/rules/session-workflow.md`
-* `/docs/rules/task-management.md`
-* `/docs/rules/documentation-rules.md`
-* `/docs/product/`
+* `@/docs/rules/session-workflow.md`
+* `@/docs/rules/task-management.md`
+* `@/docs/rules/documentation-rules.md`
+* `@/docs/product/`
 
 **Session Context Files:**
 
-* `/docs/session-context/CURRENT_STATE.md`
-* `/docs/session-context/ACTIVE_SESSION.md`
+* `@/docs/session-context/CURRENT_STATE.md`
+* `@/docs/session-context/ACTIVE_SESSION.md`
 
 ### Intake Checklist (TodoWrite)
 
@@ -55,9 +55,9 @@ You will create a TodoWrite checklist with the items below, share it with the op
 5. **Document Constraints**: Identify technical, business, or resource constraints
 6. **Initial Risk Assessment**: Identify potential risks or blockers
 7. **Create Structured Document***: Based on context type:
-   - **Business Context**: Create Opportunity Brief using `/docs/templates/opportunity-brief.md`
-   - **ML Engineering Context**: Create ML Requirements Document using `/docs/templates/ml-requirements-document.md`
-   - **Software Engineering Context**: Create Requirements Document using `/docs/templates/requirements-document.md`
+   - **Business Context**: Create Opportunity Brief using `@/docs/templates/opportunity-brief.md`
+   - **ML Engineering Context**: Create ML Requirements Document using `@/docs/templates/ml-requirements-document.md`
+   - **Software Engineering Context**: Create Requirements Document using `@/docs/templates/requirements-document.md`
 8. **Validate Understanding***: Review requirements with operator for accuracy
 9. **Update Session Context***: Update `/docs/session-context/ACTIVE_SESSION.md` with intake findings
 10. **Ready for Mode Switch***: Verify checklist is complete and report ready to `/clear` and switch to `/discover` mode

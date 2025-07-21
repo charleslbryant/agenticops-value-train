@@ -12,6 +12,8 @@ According to Claude Code documentation, file references should use the `@` prefi
 2. **Standardized Convention**: This is the documented standard for Claude Code file references
 3. **Better Integration**: Provides seamless integration with Claude Code's file handling system
 4. **Enhanced Functionality**: Enables Claude to access and analyze file contents directly
+5. **Context Efficiency**: By including file contents directly, Claude can process and reference the information without additional Read tool calls, improving context efficiency
+6. **Recursive Import Support**: Memory files support recursive imports with `@path/to/import` syntax up to 5 hops deep, providing flexible content inclusion
 
 Examples from documentation:
 - `Review the implementation in @src/utils/helpers.js`
@@ -41,6 +43,8 @@ We will update all file references in our Claude commands to use the `@` prefix 
 - **Better Integration**: Seamless integration with Claude Code file handling
 - **Consistency**: Standardized approach across all commands
 - **Future-Proof**: Following documented best practices
+- **Context Efficiency**: Reduces need for Read tool calls, optimizing context usage
+- **Recursive Import**: Supports flexible content inclusion with 5-hop recursive depth
 
 ### Negative
 - **Migration Effort**: Requires updating all existing commands

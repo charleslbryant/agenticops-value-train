@@ -11,13 +11,13 @@ assistant: "Claude Code"
 
 ## Current Work
 ```yaml
-mode: "build"  # intake|discover|scope|design|build|evaluate|deliver|operate|improve
+mode: "design"  # intake|discover|scope|design|build|evaluate|deliver|operate|improve
 phase: "enablement"  # From pipeline.yml phases
-agent: "ops"  # conductor|onboarder|lab|studio|ops|evaluator|improver
+agent: "conductor"  # conductor|onboarder|lab|studio|ops|evaluator|improver
 task:
-  issue_number: 6
-  title: "Configure GitHub Actions workflows"
-  url: "https://github.com/charleslbryant/agenticops-value-train/issues/6"
+  issue_number: null
+  title: "Value Train infrastructure and documentation"
+  url: null
   priority: "now"
   status: "In progress"
 branch: "main"
