@@ -4,15 +4,15 @@
 
 | Mode | Question | Output |
 |------|----------|--------|
-| `/intake` | What needs to be built? | Initial understanding |
-| `/discover` | What don't we know? | Research findings |
-| `/scope` | What's most important? | Priorities & boundaries |
-| `/design` | What are the requirements? | Specs & acceptance criteria |
-| `/build` | Code it | Working software |
-| `/evaluate` | Does it work? | Test results |
-| `/deliver` | Ship it | Deployed code |
-| `/operate` | Keep it running | Monitoring data |
-| `/improve` | Make it better | Improvements |
+| Intake | What needs to be built? | Initial understanding |
+| Discover | What don't we know? | Research findings |
+| Scope | What's most important? | Priorities & boundaries |
+| Design | What are the requirements? | Specs & acceptance criteria |
+| Build | Code it | Working software |
+| Evaluate | Does it work? | Test results |
+| Deliver | Ship it | Deployed code |
+| Operate | Keep it running | Monitoring data |
+| Improve | Make it better | Improvements |
 
 ## Quick Patterns
 
@@ -31,31 +31,31 @@
 
 ## Status: [Current Mode]
 
-### ✅ /intake
+### ✅ Intake
 - [ ] Requirements clear
 - [ ] Success criteria defined
 
-### ⏳ /discover  
+### ⏳ Discover  
 - [ ] Technical approach researched
 - [ ] Unknowns identified
 
-### /scope
+### Scope
 - [ ] Priorities clear (must/nice/defer)
 - [ ] Boundaries defined
 
-### /design
+### Design
 - [ ] Architecture planned
 - [ ] Patterns chosen
 
-### /build
+### Build
 - [ ] Code written
 - [ ] Tests written
 
-### /evaluate
+### Evaluate
 - [ ] Tests passing
 - [ ] Code reviewed
 
-### /deliver
+### Deliver
 - [ ] PR created
 - [ ] Deployed
 
@@ -71,8 +71,8 @@
 
 ## With Claude.ai
 
-Just say: "Let's use Value Train for [task]. Start with /intake"
+Just say: "Let's use Value Train for [task]"
 
 ---
 
-*That's it. No complex setup. Just start with /intake and follow the modes.*
+*That's it. No complex setup. Just start with Intake and follow the modes.*

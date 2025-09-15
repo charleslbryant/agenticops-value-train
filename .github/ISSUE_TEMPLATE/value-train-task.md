@@ -7,7 +7,7 @@ assignees: ''
 ---
 
 ## Current Mode
-`/intake` | `/discover` | `/scope` | `/design` | `/build` | `/evaluate` | `/deliver` | `/operate` | `/improve`
+Intake | Discover | Scope | Design | Build | Evaluate | Deliver | Operate | Improve
 
 ## What needs to be done?
 Brief description of the task.

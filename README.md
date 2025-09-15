@@ -6,96 +6,96 @@
 
 Nine simple modes that guide you from idea to production:
 
-1. **`/intake`** - What needs to be built?
-2. **`/discover`** - What do we need to learn first?
-3. **`/scope`** - What's in/out of scope? Constraints?
-4. **`/design`** - Requirements and specifications
-5. **`/build`** - Write the code
-6. **`/evaluate`** - Does it work?
-7. **`/deliver`** - Ship it
-8. **`/operate`** - Keep it running
-9. **`/improve`** - Make it better
+1. **Intake** - What needs to be built?
+2. **Discover** - What do we need to learn first?
+3. **Scope** - What's in/out of scope? Constraints?
+4. **Design** - Requirements and specifications
+5. **Build** - Write the code
+6. **Evaluate** - Does it work?
+7. **Deliver** - Ship it
+8. **Operate** - Keep it running
+9. **Improve** - Make it better
 
 That's it. No complex configs. No 18 phases. No 7 agents. Just a simple workflow.
 
 ## Quick Start
 
 ### For a New Feature:
-```bash
-/intake     # Understand the need
-/discover   # Research approach
-/scope      # Define priorities
-/design     # Specify requirements
-/build      # Write code
-/evaluate   # Test it
-/deliver    # Deploy
+```
+Intake     → Understand the need
+Discover   → Research approach  
+Scope      → Define priorities
+Design     → Specify requirements
+Build      → Write code
+Evaluate   → Test it
+Deliver    → Deploy
 ```
 
 ### For a Bug Fix:
-```bash
-/intake     # Understand the bug
-/discover   # Find root cause
-/build      # Fix it
-/evaluate   # Verify fix
-/deliver    # Deploy patch
+```
+Intake     → Understand the bug
+Discover   → Find root cause
+Build      → Fix it
+Evaluate   → Verify fix
+Deliver    → Deploy patch
 ```
 
 ### For Refactoring:
-```bash
-/discover   # Identify problem areas
-/scope      # Define refactor boundaries
-/design     # Plan new structure
-/build      # Refactor
-/evaluate   # Ensure nothing broke
+```
+Discover   → Identify problem areas
+Scope      → Define refactor boundaries
+Design     → Plan new structure
+Build      → Refactor
+Evaluate   → Ensure nothing broke
 ```
 
 ## How to Use
 
 ### Option 1: Mental Model Only
 Just use the modes as a checklist. Ask yourself:
-- Have I understood what needs to be built? (`/intake`)
-- Do I know enough to build it? (`/discover`)
-- Have I planned the approach? (`/design`)
+- Have I understood what needs to be built? (Intake)
+- Do I know enough to build it? (Discover)
+- Have I planned the approach? (Design)
 - etc.
 
 ### Option 2: With Claude.ai
-Tell Claude: "Let's use Value Train. Start with `/intake` for [your task]"
+Tell Claude: "Let's use Value Train for [your task]"
 
-Claude will guide you through each mode with appropriate questions.
+Claude will help you think through each mode as you progress.
 
 ### Option 3: Simple Tracking
 Create a `value-train.md` file in your project:
 
 ```markdown
-# Current Mode: /build
+# Current Mode: Build
 
-## /intake ✅
+## Intake ✅
 - Understood requirements
 - Identified stakeholders
 
-## /discover ✅
+## Discover ✅
 - Researched existing solutions
 - Identified technical constraints
 
-## /scope ✅
+## Scope ✅
 - Must have: Basic theme toggle
 - Nice to have: Custom colors
 - Ship first, iterate later
 
-## /design ✅
+## Design ✅
 - Created architecture diagram
 - Chose tech stack
 
-## /build 🚧
+## Build 🚧
 - [ ] Implement API
 - [ ] Add frontend
 - [ ] Write tests
 
-## /evaluate
+## Evaluate
 - [ ] Run tests
 - [ ] Code review
 
-## /deliver
+## Deliver
 - [ ] Create PR
 - [ ] Deploy to staging
 - [ ] Deploy to production
@@ -247,40 +247,40 @@ A: We removed it. This is the simplified version focused on practical software d
 ### Example 1: Adding Dark Mode to an App
 
 ```
-/intake
+Intake:
 - Users want dark mode for night usage
 - Should respect system preferences
 - Need toggle in settings
 
-/discover
+Discover:
 - Current app uses CSS-in-JS
 - Need to research theme switching patterns
 - Check browser compatibility
 
-/scope
+Scope:
 - MUST: Theme switching, settings toggle
 - NICE: System preference detection, animations
 - DEFER: Custom color picker, per-page themes
 - CONSTRAINT: Must work in IE11
 
-/design
+Design:
 - Requirement: Toggle between light/dark themes
 - Requirement: Remember user preference
 - Spec: Use CSS custom properties for theming
 - Spec: React Context for state management
 - Acceptance: Works in all target browsers
 
-/build
+Build:
 - Create ThemeContext
 - Add toggle component
 - Update all components
 
-/evaluate
+Evaluate:
 - Test in multiple browsers
 - Check accessibility contrast
 - Verify persistence works
 
-/deliver
+Deliver:
 - Deploy to staging for QA
 - Get design approval
 - Deploy to production
@@ -289,26 +289,26 @@ A: We removed it. This is the simplified version focused on practical software d
 ### Example 2: Fixing Performance Issue
 
 ```
-/intake
+Intake:
 - App is slow when loading large datasets
 - Users reporting timeouts
 - Affects dashboard page
 
-/discover
+Discover:
 - Profile current performance
 - Found N+1 query problem
 - Database missing indexes
 
-/build
+Build:
 - Add database indexes
 - Implement query batching
 - Add caching layer
 
-/evaluate
+Evaluate:
 - Load test with large dataset
 - Verify 10x performance improvement
 
-/deliver
+Deliver:
 - Deploy during maintenance window
 - Monitor performance metrics
 ```
@@ -316,7 +316,7 @@ A: We removed it. This is the simplified version focused on practical software d
 ## Getting Started
 
 1. **Create a GitHub issue** - Use the Value Train task template
-2. **Start with /intake** - Document requirements in the issue
+2. **Start with Intake** - Document requirements in the issue
 3. **Move through modes** - Update issue as you progress
 4. **Collaborate** - Others can continue from your issue context
 5. **Iterate** - Go through modes multiple times if needed

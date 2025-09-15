@@ -1,64 +1,63 @@
-# CLAUDE.md (Simplified)
+# CLAUDE.md
 
 Instructions for Claude when working with Value Train projects.
 
 ## Value Train Modes
 
-When the user types a mode command, switch to that mode's focus:
+The Value Train uses 9 conceptual modes to organize work. These are **mental models**, not commands - just ways to think about what type of work you're doing:
 
-- `/intake` - Gather requirements. Ask what, why, who, and success criteria.
-- `/discover` - Research unknowns. Investigate technical approaches.
-- `/scope` - Define priorities. What's in/out of scope.
-- `/design` - Plan architecture. Create technical design.
-- `/build` - Write code. Follow TDD. Commit frequently.
-- `/evaluate` - Test thoroughly. Verify requirements are met.
-- `/deliver` - Deploy code. Create PRs, update docs.
-- `/operate` - Monitor health. Check logs and metrics.
-- `/improve` - Optimize based on usage. Plan enhancements.
+1. **Intake** - Understanding what needs to be built
+2. **Discover** - Researching unknowns
+3. **Scope** - Defining priorities and boundaries
+4. **Design** - Creating requirements and specifications
+5. **Build** - Writing code
+6. **Evaluate** - Testing and code review
+7. **Deliver** - Deploying to production
+8. **Operate** - Monitoring and maintenance
+9. **Improve** - Optimization and enhancement
 
-## Mode Behavior
+## How to Use Modes
 
-When entering a mode:
-1. Acknowledge the mode switch
-2. Create a todo list for that mode's activities
-3. Guide the user through mode-appropriate tasks
-4. Track progress with TodoWrite
+Modes are simply **labels for the current type of work**. When working on a task:
 
-## Example Interaction
+1. **Identify the current mode** based on what you're doing
+2. **Update the GitHub issue** to show current mode
+3. **Focus on activities** appropriate for that mode
+4. **Progress naturally** through modes as work evolves
 
-```
-User: /intake
-Claude: Switching to intake mode. Let's gather requirements.
-- What problem are we solving?
-- Who will use this feature?
-- What does success look like?
-- Are there any constraints?
+## Example Workflow
 
-[Creates todos for requirements gathering]
+```markdown
+GitHub Issue #42: Add dark mode
+
+## Current Mode: Design
+(Previously completed: Intake, Discover, Scope)
+
+Working on technical specifications for theme implementation...
 ```
 
 ## Development Principles
 
-1. **One mode at a time** - Focus on current stage
-2. **Complete before advancing** - Ensure mode goals are met
-3. **Document everything** - Capture decisions and rationale
-4. **Test first** - Write tests before implementation
-5. **Small commits** - Commit frequently with clear messages
+1. **Prioritize ruthlessly** - Ship must-haves first
+2. **Document in issues** - Maintain context across sessions
+3. **Test first** - Write tests before implementation
+4. **Small commits** - Commit frequently with clear messages
+5. **Collaborate** - Update issues for handoffs
 
-## Simplified Workflow
+## Working with Issues
 
-No complex YAML files, no 18 phases, no 7 agents. Just:
-- 9 modes as a mental model
-- Todos for tracking
-- Git for version control
-- Markdown for documentation
+GitHub issues are the **single source of truth**:
+- Document decisions and progress
+- Update current mode as work progresses
+- Leave clear next steps for others
+- Maintain context across sessions
 
-## Commands
+## No Special Commands
 
-The user may ask to:
-- Switch modes: `/intake`, `/discover`, etc.
-- Check status: "What mode are we in?"
-- Show progress: "Show todos"
-- Complete mode: "Ready for next mode"
+Value Train doesn't require special commands or state management. Just:
+- Think about what type of work you're doing
+- Label it with the appropriate mode
+- Focus on that mode's goals
+- Move to the next mode when ready
 
-Keep it simple. Keep it focused. Keep it practical.
+Keep it simple. Keep it practical.

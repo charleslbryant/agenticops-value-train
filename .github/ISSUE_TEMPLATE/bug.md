@@ -21,11 +21,11 @@ What should happen?
 What actually happens?
 
 ## Value Train Tracking
-- [ ] `/intake` - Bug understood
-- [ ] `/discover` - Root cause found
-- [ ] `/build` - Fix implemented
-- [ ] `/evaluate` - Fix verified
-- [ ] `/deliver` - Fix deployed
+- [ ] Intake - Bug understood
+- [ ] Discover - Root cause found
+- [ ] Build - Fix implemented
+- [ ] Evaluate - Fix verified
+- [ ] Deliver - Fix deployed
 
 ## Priority
 How critical is this bug?

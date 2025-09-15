@@ -13,13 +13,13 @@ What problem does this solve?
 How should we solve it?
 
 ## Value Train Modes
-- [ ] `/intake` - Requirements gathered
-- [ ] `/discover` - Research complete
-- [ ] `/scope` - Priorities defined
-- [ ] `/design` - Specs created
-- [ ] `/build` - Code written
-- [ ] `/evaluate` - Tests passing
-- [ ] `/deliver` - Deployed
+- [ ] Intake - Requirements gathered
+- [ ] Discover - Research complete
+- [ ] Scope - Priorities defined
+- [ ] Design - Specs created
+- [ ] Build - Code written
+- [ ] Evaluate - Tests passing
+- [ ] Deliver - Deployed
 
 ## Priority
 Is this a must-have or nice-to-have?
