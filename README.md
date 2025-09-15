@@ -1,179 +1,331 @@
-# AgenticOps Value Train™
+# Value Train™ - Simple Version
 
-*This repo is a work in progres as we think about solving agentic AI engineering problmes. The repo isstill very much experimental and messy. Things may be deleted or changed at any moment, sometimes daily. Use at your own risk and share what your thinking about in AI Engineering and AgenticOps.*
+*A structured workflow for getting software built right.*
 
-*NOTE: We started in Python, but C# is the future of this repo. We're using Python for now because it's the most popular language for AI and ML. But @charleslbryant is a C# dev till he dies, so we're going there :).*
+## What is Value Train?
 
-<div align="center">
-<img src="assets/images/value-train-logo.png" alt="Value Train Logo" width="400">
-</div>
+Nine simple modes that guide you from idea to production:
 
-## All Aboard the Value Train! 
+1. **`/intake`** - What needs to be built?
+2. **`/discover`** - What do we need to learn first?
+3. **`/scope`** - What's in/out of scope? Constraints?
+4. **`/design`** - Requirements and specifications
+5. **`/build`** - Write the code
+6. **`/evaluate`** - Does it work?
+7. **`/deliver`** - Ship it
+8. **`/operate`** - Keep it running
+9. **`/improve`** - Make it better
 
-Welcome to the station where AI development meets structured delivery! The AgenticOps Value Train™ transforms chaotic ML engineering into a well-orchestrated journey from opportunity to production. No more missed connections or derailed projects, just reliable, automated, and auditable value delivery.
+That's it. No complex configs. No 18 phases. No 7 agents. Just a simple workflow.
 
----
+## Quick Start
 
-## What is the Value Train?
-
-**AgenticOps Value Train™** is an AI-driven value delivery system that implements a structured methodology for managing AI agent development workflows across the entire ML pipeline. Think of it as the "DevOps for AI Agents", bringing the same rigor,discipline, automation, and reliability that transformed software development to AI-human collaborative workflows.
-
-### Core Value Proposition
-
-- For ML engineering teams who struggle with chaotic, manual ML project workflows
-- The Value Train is an AI-driven development methodology  
-- That provides structured agent-human collaboration with automated quality gates
-- Unlike traditional MLOps platforms that focus only on technical pipeline
-- We orchestrate the entire development workflow from opportunity assessment through continuous improvement
-
-## 🎯 Key Features
-
-### Agent-Centric Design
-Seven specialized AI agents work together seamlessly:
-- **Conductor** - Orchestrates the entire value stream
-- **Onboarder** - Manages pre-engagement and client readiness  
-- **Lab** - Handles data profiling, extraction, and model experimentation
-- **Studio** - Designs model architecture and production systems
-- **Ops** - Provisions infrastructure, monitoring, and deployment
-- **Evaluator** - Validates quality and tracks performance metrics
-- **Improver** - Optimizes features and manages retraining cycles
-
-### Phase-Gate Methodology
-Structured progression through 18 defined phases with automated validation:
-- **Pre-Engagement**: Opportunity Triage → Discovery → Readiness → Scope → Logistics
-- **Delivery**: Data Sources → Extraction → Preparation → Exploration → Feature Engineering → Architecture → Training → Validation → Deployment → Monitoring → Evaluation → Performance Analysis → Improvement → Retraining
-
-### Auto-Pilot Orchestration
-Autonomous issue selection, workspace management, and quality enforcement reduces manual task management andcoordination overhead. Moving cards, logging time, not today.
-
-### Session-Based Context Management
-Persistent context across agent handoffs and phase transitions ensures no information loss and complete audit trails.
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.8+
-- Git with LFS support
-- GitHub CLI (`gh`)
-
-### Installation
-
+### For a New Feature:
 ```bash
-# Clone the repository
-git clone https://github.com/charleslbryant/agenticops-value-train.git
-cd agenticops-value-train
-
-# Set up development environment
-make venv
-source venv/bin/activate
-make install
-
-# Run tests to verify installation
-make test
+/intake     # Gather requirements
+/discover   # Research approach
+/scope      # Estimate effort
+/design     # Plan architecture
+/build      # Write code
+/evaluate   # Test it
+/deliver    # Deploy
 ```
 
-### Your First Journey
-
-1. **Initialize a new project session:**
-   ```bash
-   /kick
-   ```
-
-2. **Create your first value stream:**
-   ```bash
-   /plan
-   ```
-
-3. **Start the Auto-Pilot:**
-   ```bash
-   /drive
-   ```
-
-## 🛤️ Project Structure
-
-```
-agenticops-value-train/
-├── assets/                    # Logos and visual assets
-├── docs/                      # Documentation and specifications
-│   ├── architecture/          # System architecture and ADRs
-│   ├── product/              # Product vision and strategy
-│   ├── rules/                # Operating procedures and checklists
-│   └── session-context/      # Active session management
-├── pipelines/                # Phase definitions and workflow configs
-├── scripts/                  # Automation scripts and helpers
-├── templates/                # Reusable templates and scaffolding
-├── tests/                    # Test suites and validation
-└── tickets/                  # Active work tickets and artifacts
+### For a Bug Fix:
+```bash
+/intake     # Understand the bug
+/discover   # Find root cause
+/build      # Fix it
+/evaluate   # Verify fix
+/deliver    # Deploy patch
 ```
 
-## 📊 Success Metrics
+### For Refactoring:
+```bash
+/discover   # Identify problem areas
+/scope      # Define refactor boundaries
+/design     # Plan new structure
+/build      # Refactor
+/evaluate   # Ensure nothing broke
+```
 
-*This is based on a non-scientific, non-rigorous, and non-peer-reviewed account of my own experience using the Value Train underlying principles and methodology to build the Value Train (so meta).*
+## How to Use
 
-- **3x faster** time-to-deployment for ML models through automated workflows
-- **95%** of projects pass quality gates on first attempt through standardized processes
-- **80%** of routine tasks automated through AI agent coordination
-- **10x** more concurrent ML projects supported with same team size (pure assumption that feels possible)
-- **100%** traceability of decisions and artifacts for regulatory requirements (maybe 999.999%?)
+### Option 1: Mental Model Only
+Just use the modes as a checklist. Ask yourself:
+- Have I understood what needs to be built? (`/intake`)
+- Do I know enough to build it? (`/discover`)
+- Have I planned the approach? (`/design`)
+- etc.
 
-## 🔧 Technology Stack
+### Option 2: With Claude.ai
+Tell Claude: "Let's use Value Train. Start with `/intake` for [your task]"
 
-- **Backend**: Python for automation scripts and workflow orchestration
-- **Configuration**: YAML for pipeline definitions and session state
-- **Documentation**: Markdown with YAML front-matter for structured metadata
-- **Integration**: GitHub API for issue management and automation, Git hooks for quality gates
-- **Infrastructure**: Cloud-agnostic design with container support
+Claude will guide you through each mode with appropriate questions.
 
-## 📚 Documentation
+### Option 3: Simple Tracking
+Create a `value-train.md` file in your project:
 
-- **[Product Vision](docs/product/product-vision.md)** - Strategic direction and goals
-- **[Product Strategy](docs/product/product-strategy.md)** - Development roadmap and go-to-market
-- **[Architecture Guide](docs/architecture/architecture.md)** - System design and technical details
-- **[Value Train Specification](docs/product/agenticops-value-train.md)** - Complete methodology reference
-- **[Contributing Guide](docs/contribute.md)** - How to join our crew
+```markdown
+# Current Mode: /build
 
-## 🎫 Contributing
+## /intake ✅
+- Understood requirements
+- Identified stakeholders
 
-Ready to climb aboard and contribute to the Value Train? We'd love to have you join our crew! Whether you're a seasoned conductor or just getting your ticket punched, there's a place for you on this journey.
+## /discover ✅
+- Researched existing solutions
+- Identified technical constraints
 
-**[📖 Read our Contributing Guide](docs/contribute.md)** to learn how to:
-- Get your development environment on track
-- Follow our quality standards and workflows  
-- Submit your first pull request
-- Become a certified Value Train engineer
+## /scope ✅
+- Estimated 2 days
+- Defined deliverables
 
-## 📈 Roadmap
+## /design ✅
+- Created architecture diagram
+- Chose tech stack
 
-### Current Status: Infrastructure Foundation (Phase 1)
-- ✅ Core agent roles and responsibilities defined
-- ✅ Pipeline phases and mode system implemented
-- ✅ Session management and context tracking
-- 🚧 Auto-Pilot implementation (in progress)
-- 🔜 Risk registry and governance features
+## /build 🚧
+- [ ] Implement API
+- [ ] Add frontend
+- [ ] Write tests
 
-## 🤝 Community & Support
+## /evaluate
+- [ ] Run tests
+- [ ] Code review
 
-- **Issues**: [GitHub Issues](https://github.com/charleslbryant/agenticops-value-train/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/charleslbryant/agenticops-value-train/discussions)
-- **Documentation**: [Wiki](https://github.com/charleslbryant/agenticops-value-train/wiki)
+## /deliver
+- [ ] Create PR
+- [ ] Deploy to staging
+- [ ] Deploy to production
+```
 
-## 📄 License
+## Core Principles
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+1. **One mode at a time** - Focus on the current stage
+2. **Complete before moving on** - Don't skip steps
+3. **Document decisions** - Write down why, not just what
+4. **Small iterations** - Go through all modes quickly, then iterate
+
+## Mode Details
+
+### /intake - Requirements Gathering
+**Purpose:** Understand what needs to be built and why
+
+**Questions to answer:**
+- What problem are we solving?
+- Who will use this?
+- What does success look like?
+- What are the constraints?
+
+**Output:** Clear requirements document or user story
 
 ---
 
-## 🚂 Ready to Depart?
+### /discover - Research & Learning
+**Purpose:** Figure out what you don't know
 
-The Value Train is now boarding! Whether you're looking to streamline your ML development process, implement structured AI agent workflows, or just curious about the future of AI-driven development, we invite you to:
+**Activities:**
+- Research existing solutions
+- Identify technical challenges
+- Spike on unknown technologies
+- Talk to domain experts
 
-1. ⭐ **Star this repository** to stay updated on our journey
-2. 🔍 **Explore the documentation** to understand the full methodology  
-3. 🛠️ **Try the Quick Start** to experience the Value Train firsthand
-4. 🤝 **Join our community** and help shape the future of AI development
-
-*All aboard! Next stop: Structured, scalable, and successful AI delivery.*
+**Output:** Technical findings and approach options
 
 ---
 
-**AgenticOps Value Train™** - *Making AI development as reliable as clockwork* ⚙️🚂
+### /scope - Boundaries & Constraints
+**Purpose:** Define what we will and won't do
+
+**Questions to answer:**
+- What's in scope vs out of scope?
+- What are the constraints (time, budget, tech)?
+- What are the non-negotiables?
+- What can we defer to later?
+
+**Output:** Clear boundaries and constraints document
+
+---
+
+### /design - Requirements & Specifications
+**Purpose:** Define detailed requirements and technical specifications
+
+**Activities:**
+- Document functional requirements
+- Define non-functional requirements
+- Specify API contracts
+- Create data models
+- Define acceptance criteria
+
+**Output:** Requirements document and technical specifications
+
+---
+
+### /build - Implementation
+**Purpose:** Write the actual code
+
+**Best practices:**
+- Write tests first (TDD)
+- Commit frequently
+- Follow existing patterns
+- Document as you go
+
+**Output:** Working code
+
+---
+
+### /evaluate - Testing & Validation
+**Purpose:** Ensure it works correctly
+
+**Activities:**
+- Run automated tests
+- Manual testing
+- Code review
+- Performance testing
+
+**Output:** Validated, tested code
+
+---
+
+### /deliver - Deployment
+**Purpose:** Get it to production
+
+**Activities:**
+- Create pull request
+- Deploy to staging
+- Production deployment
+- Update documentation
+
+**Output:** Deployed feature
+
+---
+
+### /operate - Monitoring
+**Purpose:** Ensure it keeps working
+
+**Activities:**
+- Monitor metrics
+- Check error logs
+- Respond to alerts
+- Track performance
+
+**Output:** Operational insights
+
+---
+
+### /improve - Optimization
+**Purpose:** Make it better based on real usage
+
+**Activities:**
+- Analyze usage patterns
+- Identify bottlenecks
+- Plan improvements
+- Iterate
+
+**Output:** Improvement backlog
+
+## FAQ
+
+**Q: Do I have to use all 9 modes?**
+A: No. Use what makes sense. Small bug fix? Maybe just `/intake` → `/build` → `/deliver`.
+
+**Q: Can I go backwards?**
+A: Yes! If `/build` reveals you need more `/discover`, go back.
+
+**Q: How is this different from Agile/Scrum?**
+A: Value Train is compatible with any methodology. Think of it as a structured way to approach individual tasks within your sprints.
+
+**Q: What about all the complex stuff in the original Value Train?**
+A: We removed it. This is the simplified version focused on practical software development.
+
+## Examples
+
+### Example 1: Adding Dark Mode to an App
+
+```
+/intake
+- Users want dark mode for night usage
+- Should respect system preferences
+- Need toggle in settings
+
+/discover
+- Current app uses CSS-in-JS
+- Need to research theme switching patterns
+- Check browser compatibility
+
+/scope
+- IN: Theme switching, settings toggle, system preference
+- OUT: Custom color picker, per-page themes
+- Constraints: Must work in IE11, 3 day deadline
+
+/design
+- Requirement: Toggle between light/dark themes
+- Requirement: Remember user preference
+- Spec: Use CSS custom properties for theming
+- Spec: React Context for state management
+- Acceptance: Works in all target browsers
+
+/build
+- Create ThemeContext
+- Add toggle component
+- Update all components
+
+/evaluate
+- Test in multiple browsers
+- Check accessibility contrast
+- Verify persistence works
+
+/deliver
+- Deploy to staging for QA
+- Get design approval
+- Deploy to production
+```
+
+### Example 2: Fixing Performance Issue
+
+```
+/intake
+- App is slow when loading large datasets
+- Users reporting timeouts
+- Affects dashboard page
+
+/discover
+- Profile current performance
+- Found N+1 query problem
+- Database missing indexes
+
+/build
+- Add database indexes
+- Implement query batching
+- Add caching layer
+
+/evaluate
+- Load test with large dataset
+- Verify 10x performance improvement
+
+/deliver
+- Deploy during maintenance window
+- Monitor performance metrics
+```
+
+## Getting Started
+
+1. **Pick a task** - Something you need to build
+2. **Start with /intake** - Write down what you know
+3. **Move through modes** - Don't skip steps
+4. **Track progress** - Use todos or markdown
+5. **Iterate** - Go through modes multiple times if needed
+
+## The Value Train Philosophy
+
+- **Structure prevents chaos** - A little process goes a long way
+- **Think before coding** - The modes before `/build` save time
+- **Small steps** - Better to go through all modes quickly than get stuck
+- **Continuous improvement** - Every iteration teaches you something
+
+---
+
+*Value Train: Making software development as reliable as clockwork* ⚙️
+
+*No complex setup. No steep learning curve. Just a simple, effective workflow.*

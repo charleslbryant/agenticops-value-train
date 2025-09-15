@@ -4,10 +4,10 @@
 
 | Mode | Question | Output |
 |------|----------|--------|
-| `/intake` | What needs to be built? | Requirements |
+| `/intake` | What needs to be built? | Initial understanding |
 | `/discover` | What don't we know? | Research findings |
-| `/scope` | How much work? | Time estimate |
-| `/design` | How to build it? | Architecture plan |
+| `/scope` | What's in/out of scope? | Boundaries & constraints |
+| `/design` | What are the requirements? | Specs & acceptance criteria |
 | `/build` | Code it | Working software |
 | `/evaluate` | Does it work? | Test results |
 | `/deliver` | Ship it | Deployed code |
