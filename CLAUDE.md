@@ -4,17 +4,18 @@ Instructions for Claude when working with Value Train projects.
 
 ## Value Train Modes
 
-The Value Train uses 9 conceptual modes to organize work. These are **mental models**, not commands - just ways to think about what type of work you're doing:
+The Value Train uses 10 conceptual modes to organize work. These are **mental models**, not commands - just ways to think about what type of work you're doing:
 
 1. **Plan** - Defining business requirements
 2. **Research** - Investigating technical approach
-3. **Scope** - Finding the simplest solution
-4. **Design** - Creating technical specifications
-5. **Build** - Writing code
-6. **Evaluate** - Testing and code review
+3. **Design** - Creating UX, UI, technical specifications, and go-to-market strategies
+4. **Build** - Writing code
+5. **Validate** - Testing (unit tests, integration tests, e2e tests)
+6. **Review** - Code review, PR review, client demos, and merging
 7. **Deliver** - Deploying to production
 8. **Operate** - Monitoring and maintenance
-9. **Improve** - Optimization and enhancement
+9. **Evaluate** - Assessing that delivery meets requirements from plan
+10. **Improve** - Optimization and enhancement
 
 ## How to Use Modes
 
@@ -31,9 +32,9 @@ Modes are simply **labels for the current type of work**. When working on a task
 GitHub Issue #42: Add dark mode
 
 ## Current Mode: Design
-(Previously completed: Intake, Discover, Scope)
+(Previously completed: Plan, Research)
 
-Working on technical specifications for theme implementation...
+Working on UX mockups and technical specifications for theme implementation...
 ```
 
 ## Development Principles

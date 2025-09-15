@@ -45,23 +45,26 @@ namespace ValueTrain
                     case "research":
                         session.SwitchMode(Mode.Research);
                         break;
-                    case "scope":
-                        session.SwitchMode(Mode.Scope);
-                        break;
                     case "design":
                         session.SwitchMode(Mode.Design);
                         break;
                     case "build":
                         session.SwitchMode(Mode.Build);
                         break;
-                    case "evaluate":
-                        session.SwitchMode(Mode.Evaluate);
+                    case "validate":
+                        session.SwitchMode(Mode.Validate);
+                        break;
+                    case "review":
+                        session.SwitchMode(Mode.Review);
                         break;
                     case "deliver":
                         session.SwitchMode(Mode.Deliver);
                         break;
                     case "operate":
                         session.SwitchMode(Mode.Operate);
+                        break;
+                    case "evaluate":
+                        session.SwitchMode(Mode.Evaluate);
                         break;
                     case "improve":
                         session.SwitchMode(Mode.Improve);

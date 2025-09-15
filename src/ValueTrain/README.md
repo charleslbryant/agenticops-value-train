@@ -20,14 +20,15 @@ dotnet run --project src/ValueTrain/ValueTrain.csproj
 1. Start the program and enter your task name
 2. Use mode commands to progress through your workflow:
    - `plan` - Define business requirements
-   - `research` - Investigate technical approach  
-   - `scope` - Define simplest solution
-   - `design` - Create specifications
+   - `research` - Investigate technical approach
+   - `design` - Create UX, UI, technical specs, and go-to-market
    - `build` - Write code
-   - `evaluate` - Test
-   - `deliver` - Deploy
-   - `operate` - Monitor
-   - `improve` - Optimize
+   - `validate` - Test (unit, integration, e2e)
+   - `review` - Code review, PR review, demos, and merge
+   - `deliver` - Deploy to production
+   - `operate` - Monitor and maintain
+   - `evaluate` - Assess delivery meets requirements
+   - `improve` - Optimize and enhance
 
 3. Use `/status` to see your progress
 4. Use `/todo` to manage your checklist
@@ -40,36 +41,36 @@ dotnet run --project src/ValueTrain/ValueTrain.csproj
 
 What are you building? Add dark mode to app
 
-[None] > /intake
-🚂 Switched to Intake mode
+[None] > /plan
+🚂 Switched to Plan mode
 
-📋 Intake Mode Checklist:
-  ⬜ Define the problem to solve
+📋 Plan Mode Checklist:
+  ⬜ Define business requirements
   ⬜ Identify stakeholders  
   ⬜ Document success criteria
-  ⬜ Capture constraints and assumptions
+  ⬜ Create GitHub issues
 
-[Intake] > /todo
+[Plan] > /todo
 Todo Management:
   1. Add todo
   2. Start todo
   3. Complete todo
   4. Show todos
 Choice: 3
-1. Define the problem to solve
+1. Define business requirements
 2. Identify stakeholders
 3. Document success criteria
-4. Capture constraints and assumptions
+4. Create GitHub issues
 Select todo (1-4): 1
 ✅ Todo completed
 
-[Intake] > /next
-🚂 Switched to Discover mode
+[Plan] > /next
+🚂 Switched to Research mode
 ```
 
 ## Features
 
-- **Simple mode progression** - Linear workflow through 9 modes
+- **Simple mode progression** - Linear workflow through 10 modes
 - **Automatic checklists** - Each mode generates relevant todos
 - **Progress tracking** - See completed modes and pending tasks
 - **Lightweight** - No external dependencies, just .NET

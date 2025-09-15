@@ -7,15 +7,16 @@ namespace ValueTrain
     public enum Mode
     {
         None,
-        Plan,       // What does the business need?
-        Research,   // What do we need to learn?
-        Scope,      // What's the simplest solution?
-        Design,     // Technical specifications
+        Plan,       // Define business requirements
+        Research,   // Investigate technical approach
+        Design,     // Create UX, UI, technical specs, and go-to-market
         Build,      // Write the code
-        Evaluate,   // Does it work?
-        Deliver,    // Ship it
-        Operate,    // Keep it running
-        Improve     // Make it better
+        Validate,   // Test (unit, integration, e2e)
+        Review,     // Code review, PR review, demos, and merge
+        Deliver,    // Deploy to production
+        Operate,    // Monitor and maintain
+        Evaluate,   // Assess delivery meets requirements
+        Improve     // Optimize and enhance
     }
 
     public class Todo
@@ -122,39 +123,39 @@ namespace ValueTrain
                     "Research libraries and tools",
                     "Document findings in issue"
                 },
-                [Mode.Scope] = new[]
-                {
-                    "Define must-haves",
-                    "Identify nice-to-haves", 
-                    "Decide what to defer",
-                    "Document constraints"
-                },
                 [Mode.Design] = new[]
                 {
-                    "Document functional requirements",
-                    "Define non-functional requirements",
+                    "Create UX wireframes and flows",
+                    "Design UI components and mockups",
                     "Create technical specifications",
-                    "Define acceptance criteria"
+                    "Define go-to-market strategy"
                 },
                 [Mode.Build] = new[]
                 {
-                    "Write unit tests",
                     "Implement functionality",
+                    "Follow coding standards",
                     "Write documentation",
                     "Commit code frequently"
                 },
-                [Mode.Evaluate] = new[]
+                [Mode.Validate] = new[]
                 {
-                    "Run unit tests",
-                    "Perform integration testing",
-                    "Code review",
-                    "Verify requirements are met"
+                    "Write unit tests",
+                    "Run integration tests",
+                    "Execute end-to-end tests",
+                    "Fix identified issues"
+                },
+                [Mode.Review] = new[]
+                {
+                    "Create pull request",
+                    "Complete code review",
+                    "Demo to stakeholders",
+                    "Merge approved changes"
                 },
                 [Mode.Deliver] = new[]
                 {
-                    "Create pull request",
+                    "Prepare deployment artifacts",
                     "Deploy to staging",
-                    "Get approvals",
+                    "Get final approvals",
                     "Deploy to production"
                 },
                 [Mode.Operate] = new[]
@@ -163,6 +164,13 @@ namespace ValueTrain
                     "Check error logs",
                     "Review performance metrics",
                     "Respond to alerts"
+                },
+                [Mode.Evaluate] = new[]
+                {
+                    "Compare outcomes to requirements",
+                    "Measure success criteria",
+                    "Gather user feedback",
+                    "Document lessons learned"
                 },
                 [Mode.Improve] = new[]
                 {
@@ -196,13 +204,14 @@ namespace ValueTrain
             return CurrentMode switch
             {
                 Mode.Plan => Mode.Research,
-                Mode.Research => Mode.Scope,
-                Mode.Scope => Mode.Design,
+                Mode.Research => Mode.Design,
                 Mode.Design => Mode.Build,
-                Mode.Build => Mode.Evaluate,
-                Mode.Evaluate => Mode.Deliver,
+                Mode.Build => Mode.Validate,
+                Mode.Validate => Mode.Review,
+                Mode.Review => Mode.Deliver,
                 Mode.Deliver => Mode.Operate,
-                Mode.Operate => Mode.Improve,
+                Mode.Operate => Mode.Evaluate,
+                Mode.Evaluate => Mode.Improve,
                 Mode.Improve => Mode.None,
                 _ => Mode.Plan
             };
