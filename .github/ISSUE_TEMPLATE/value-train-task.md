@@ -27,5 +27,22 @@ Brief description of the task.
 - Dependencies
 - Blockers
 
+## Session Context
+<!-- Each session/agent updates this section -->
+### Session History
+- **[Date] [Agent/Person]:** What was done, decisions made
+- **[Date] [Agent/Person]:** Progress update, blockers found
+
+### Current State
+- Branch: `feature/xyz`
+- Files modified: 
+- Last action: 
+
+### Next Steps
+- What should the next person/agent do
+
 ## Notes
-Additional context or questions 
+Additional context or questions
+
+<!-- @claude can read this issue to understand context -->
+<!-- Multiple people/agents can collaborate by updating this issue --> 

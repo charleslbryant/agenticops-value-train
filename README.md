@@ -315,11 +315,14 @@ A: We removed it. This is the simplified version focused on practical software d
 
 ## Getting Started
 
-1. **Pick a task** - Something you need to build
-2. **Start with /intake** - Write down what you know
-3. **Move through modes** - Don't skip steps
-4. **Track progress** - Use todos or markdown
+1. **Create a GitHub issue** - Use the Value Train task template
+2. **Start with /intake** - Document requirements in the issue
+3. **Move through modes** - Update issue as you progress
+4. **Collaborate** - Others can continue from your issue context
 5. **Iterate** - Go through modes multiple times if needed
+
+### 💡 Pro Tip: Persistent Context
+GitHub issues maintain context across sessions. Update them regularly so anyone (human or AI) can pick up where you left off. See [collaboration guide](docs/collaboration.md) for details.
 
 ## The Value Train Philosophy
 

@@ -40,6 +40,8 @@ namespace ValueTrain
         public List<Todo> Todos { get; } = new List<Todo>();
         public Dictionary<Mode, DateTime> ModeHistory { get; } = new Dictionary<Mode, DateTime>();
         public string TaskName { get; set; } = "";
+        public string IssueNumber { get; set; } = "";
+        public string Branch { get; set; } = "";
         
         public void SwitchMode(Mode newMode)
         {
@@ -78,6 +80,10 @@ namespace ValueTrain
         public void ShowStatus()
         {
             Console.WriteLine($"\n📋 Task: {TaskName}");
+            if (!string.IsNullOrEmpty(IssueNumber))
+                Console.WriteLine($"🔗 Issue: #{IssueNumber}");
+            if (!string.IsNullOrEmpty(Branch))
+                Console.WriteLine($"🌿 Branch: {Branch}");
             Console.WriteLine($"📍 Current Mode: {CurrentMode}");
             Console.WriteLine($"\n✅ Completed Modes:");
             foreach (var mode in ModeHistory.OrderBy(m => m.Value))
