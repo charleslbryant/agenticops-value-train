@@ -18,9 +18,10 @@ Real-world examples of using Value Train for different types of work.
 - Redis available for caching
 
 ### /scope
-- 2 days development
-- 1 day testing
-- Will need database index
+- MUST: Basic stats endpoint
+- NICE: Real-time updates
+- DEFER: Historical trends
+- CONSTRAINT: Use existing database
 
 ### /design
 ```
@@ -91,10 +92,10 @@ Cache strategy: Redis with 1hr TTL
 - Study recovery flow patterns
 
 ### /scope
-- 5 days implementation
-- 2 days testing
-- Will affect: login, settings, admin panel
-- Out of scope: SMS-based 2FA (future phase)
+- MUST: TOTP support, backup codes, admin enforcement
+- NICE: Remember device option, better UX
+- DEFER: SMS-based 2FA, biometric support
+- CONSTRAINT: Must be FIDO2 compliant
 
 ### /design
 - Use Speakeasy library for TOTP
@@ -149,9 +150,10 @@ Cache strategy: Redis with 1hr TTL
 - Missing database indexes
 
 ### /scope
-- 3 days to fix query issues
-- 1 day for pagination
-- 1 day testing
+- MUST: Sub-2 second load time
+- NICE: Sub-1 second, fancy animations
+- DEFER: Complete rewrite
+- CONSTRAINT: No breaking changes
 
 ### /design
 - Batch queries using includes/joins
@@ -186,9 +188,10 @@ Cache strategy: Redis with 1hr TTL
 - Blocking new features
 
 ### /scope
-- 1 week refactoring
-- 3 days writing tests
-- Must maintain backward compatibility
+- MUST: Secure, testable, maintainable
+- NICE: Performance improvements
+- DEFER: New features until after refactor
+- CONSTRAINT: Zero downtime, backward compatible
 
 ### /design
 - Extract to AuthenticationService
@@ -226,7 +229,7 @@ Cache strategy: Redis with 1hr TTL
 Take a current task and run it through the modes:
 1. What problem are you solving? (intake)
 2. What do you need to learn? (discover)
-3. How long will it take? (scope)
+3. What's most important? (scope)
 4. What's your approach? (design)
 5. Build it (build)
 6. Test it (evaluate)

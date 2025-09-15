@@ -22,10 +22,10 @@ That's it. No complex configs. No 18 phases. No 7 agents. Just a simple workflow
 
 ### For a New Feature:
 ```bash
-/intake     # Gather requirements
+/intake     # Understand the need
 /discover   # Research approach
-/scope      # Estimate effort
-/design     # Plan architecture
+/scope      # Define priorities
+/design     # Specify requirements
 /build      # Write code
 /evaluate   # Test it
 /deliver    # Deploy
@@ -78,8 +78,9 @@ Create a `value-train.md` file in your project:
 - Identified technical constraints
 
 ## /scope ✅
-- Estimated 2 days
-- Defined deliverables
+- Must have: Basic theme toggle
+- Nice to have: Custom colors
+- Ship first, iterate later
 
 ## /design ✅
 - Created architecture diagram
@@ -135,16 +136,16 @@ Create a `value-train.md` file in your project:
 
 ---
 
-### /scope - Boundaries & Constraints
-**Purpose:** Define what we will and won't do
+### /scope - Boundaries & Priorities
+**Purpose:** Define what we will and won't do, and what matters most
 
 **Questions to answer:**
 - What's in scope vs out of scope?
-- What are the constraints (time, budget, tech)?
-- What are the non-negotiables?
-- What can we defer to later?
+- What are the must-haves vs nice-to-haves?
+- What constraints do we have (technical, regulatory, etc)?
+- What can we ship first and iterate on?
 
-**Output:** Clear boundaries and constraints document
+**Output:** Clear priorities and boundaries
 
 ---
 
@@ -255,9 +256,10 @@ A: We removed it. This is the simplified version focused on practical software d
 - Check browser compatibility
 
 /scope
-- IN: Theme switching, settings toggle, system preference
-- OUT: Custom color picker, per-page themes
-- Constraints: Must work in IE11, 3 day deadline
+- MUST: Theme switching, settings toggle
+- NICE: System preference detection, animations
+- DEFER: Custom color picker, per-page themes
+- CONSTRAINT: Must work in IE11
 
 /design
 - Requirement: Toggle between light/dark themes

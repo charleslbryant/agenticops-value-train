@@ -6,7 +6,7 @@
 |------|----------|--------|
 | `/intake` | What needs to be built? | Initial understanding |
 | `/discover` | What don't we know? | Research findings |
-| `/scope` | What's in/out of scope? | Boundaries & constraints |
+| `/scope` | What's most important? | Priorities & boundaries |
 | `/design` | What are the requirements? | Specs & acceptance criteria |
 | `/build` | Code it | Working software |
 | `/evaluate` | Does it work? | Test results |
@@ -40,8 +40,8 @@
 - [ ] Unknowns identified
 
 ### /scope
-- [ ] Effort estimated
-- [ ] Scope defined
+- [ ] Priorities clear (must/nice/defer)
+- [ ] Boundaries defined
 
 ### /design
 - [ ] Architecture planned

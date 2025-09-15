@@ -9,7 +9,7 @@ namespace ValueTrain
         None,
         Intake,     // What needs to be built?
         Discover,   // What don't we know?
-        Scope,      // What's in/out? Constraints?
+        Scope,      // Priorities & boundaries
         Design,     // Requirements & specifications
         Build,      // Write the code
         Evaluate,   // Does it work?
@@ -118,10 +118,10 @@ namespace ValueTrain
                 },
                 [Mode.Scope] = new[]
                 {
-                    "Define what's in scope",
-                    "Define what's out of scope", 
-                    "Identify constraints (time/budget/tech)",
-                    "Decide what to defer"
+                    "Define must-haves",
+                    "Identify nice-to-haves", 
+                    "Decide what to defer",
+                    "Document constraints"
                 },
                 [Mode.Design] = new[]
                 {
