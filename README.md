@@ -182,10 +182,12 @@ Create a `value-train.md` file in your project:
 **Activities:**
 - Run automated tests
 - Manual testing
-- Code review
+- **Code review (automated via Claude)**
 - Performance testing
 
 **Output:** Validated, tested code
+
+*Note: PRs automatically trigger Claude code review via `.github/workflows/claude-code-review.yml`*
 
 ---
 
