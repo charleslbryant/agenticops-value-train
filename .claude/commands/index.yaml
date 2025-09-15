@@ -1,108 +1,33 @@
+# Value Train Mode Index
+# Simple mode definitions for the 9 Value Train modes
+
 modes:
-  - name: /kick
-    description: Project Kickoff Mode (Template Customization)
-    checklist_id: kick
-    transitions:
-      - /begin
-      - /plan
-    context_files:
-      - /docs/rules/session-workflow.md
-      - /docs/rules/documentation-rules.md
-      - /docs/rules/git-workflow.md
-      - /docs/product/
-      - /docs/architecture/
-
-  - name: /begin
-    description: Session Startup Mode
-    checklist_id: begin
-    transitions:
-      - /plan
-      - /design
-    context_files:
-      - /docs/rules/session-workflow.md
-      - /docs/rules/task-management.md
-      - /docs/rules/git-workflow.md
-      - /docs/rules/check-in-formats.md
-      - /docs/product/
-      - /docs/architecture.md
-      - /docs/session-context/CURRENT_STATE.md
-      - /docs/session-context/NEXT_TASKS.md
-
-  - name: /plan
-    description: Task Planning Mode
-    checklist_id: plan
-    transitions:
-      - /design
-      - /deliver
-    context_files:
-      - /docs/rules/task-management.md
-      - /docs/rules/check-in-formats.md
-      - /docs/rules/documentation-rules.md
-      - /docs/rules/git-workflow.md
-      - /docs/product/
-      - /docs/architecture.md
-      - /docs/session-context/CURRENT_STATE.md
-      - /docs/session-context/NEXT_TASKS.md
-      - /docs/session-context/ACTIVE_SESSION.md
-
+  - name: /intake
+    description: Gather requirements and understand what needs to be built
+    
+  - name: /discover
+    description: Research unknowns and investigate technical approaches
+    
+  - name: /scope
+    description: Define priorities, boundaries, and constraints
+    
   - name: /design
-    description: Design Mode (Architecture & Technical Design)
-    checklist_id: design
-    transitions:
-      - /dev
-      - /plan
-    context_files:
-      - /docs/rules/design-phase.md
-      - /docs/rules/session-workflow.md
-      - /docs/rules/documentation-rules.md
-      - /docs/rules/git-workflow.md
-      - /docs/product/
-      - /docs/architecture/architecture.md
-      - /docs/session-context/CURRENT_STATE.md
-      - /docs/session-context/NEXT_TASKS.md
-      - /docs/session-context/ACTIVE_SESSION.md
-
-  - name: /dev
-    description: Development Mode (TDD)
-    checklist_id: dev
-    transitions:
-      - /design
-      - /deliver
-    context_files:
-      - /docs/rules/session-workflow.md
-      - /docs/rules/git-workflow.md
-      - /docs/rules/check-in-formats.md
-      - /docs/rules/documentation-rules.md
-      - /docs/session-context/CURRENT_STATE.md
-      - /docs/session-context/NEXT_TASKS.md
-      - /docs/session-context/ACTIVE_SESSION.md
-
+    description: Document requirements and create technical specifications
+    
+  - name: /build
+    description: Write code following TDD practices
+    
+  - name: /evaluate
+    description: Test thoroughly and verify requirements (includes code review)
+    
   - name: /deliver
-    description: Delivery Mode (complete, push, PR)
-    checklist_id: deliver
-    transitions:
-      - /begin
-      - /dev
-      - /qa
-    context_files:
-      - /docs/rules/git-workflow.md
-      - /docs/rules/documentation-rules.md
-      - /docs/rules/check-in-formats.md
-      - /docs/product/
-      - /docs/architecture.md
-      - /docs/session-context/CURRENT_STATE.md
-      - /docs/session-context/NEXT_TASKS.md
-      - /docs/session-context/ACTIVE_SESSION.md
+    description: Deploy code and update documentation
+    
+  - name: /operate
+    description: Monitor production and track metrics
+    
+  - name: /improve
+    description: Analyze usage and plan optimizations
 
-  - name: /qa
-    description: QA Mode (test, verify, validate)
-    checklist_id: qa
-    transitions:
-      - /begin
-      - /dev
-    context_files:
-      - /docs/rules/check-in-formats.md
-      - /docs/rules/documentation-rules.md
-      - /docs/session-context/CURRENT_STATE.md
-      - /docs/session-context/NEXT_TASKS.md
-      - /docs/session-context/ACTIVE_SESSION.md
+# Note: Modes flow naturally but can move backward when needed
+# Context is maintained in GitHub issues for persistence across sessions
