@@ -8,7 +8,7 @@ When the user types a mode command, switch to that mode's focus:
 
 - `/intake` - Gather requirements. Ask what, why, who, and success criteria.
 - `/discover` - Research unknowns. Investigate technical approaches.
-- `/scope` - Estimate effort. Define what's in/out of scope.
+- `/scope` - Define priorities. What's in/out of scope.
 - `/design` - Plan architecture. Create technical design.
 - `/build` - Write code. Follow TDD. Commit frequently.
 - `/evaluate` - Test thoroughly. Verify requirements are met.

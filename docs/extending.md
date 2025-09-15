@@ -20,7 +20,7 @@ What you do in each mode depends on your context:
 ### For Startups
 - **Intake**: Quick Slack discussion
 - **Discover**: 30-min research spike
-- **Scope**: T-shirt sizing (S/M/L)
+- **Scope**: Must ship today vs can wait
 - **Design**: Whiteboard sketch
 - **Build**: Ship to production
 - **Evaluate**: Test in production
@@ -29,7 +29,7 @@ What you do in each mode depends on your context:
 ### For Enterprises
 - **Intake**: Requirements document
 - **Discover**: Proof of concept
-- **Scope**: Detailed estimation
+- **Scope**: Priority matrix and trade-offs
 - **Design**: Architecture review board
 - **Build**: Feature branches
 - **Evaluate**: QA environment
@@ -38,7 +38,7 @@ What you do in each mode depends on your context:
 ### For Open Source
 - **Intake**: GitHub issue discussion
 - **Discover**: RFC process
-- **Scope**: Milestone planning
+- **Scope**: Core vs plugin vs wontfix
 - **Design**: Design doc PR
 - **Build**: Pull request
 - **Evaluate**: CI/CD pipeline
@@ -96,7 +96,7 @@ about: Track work through Value Train modes
 - [ ] Approach chosen
 
 ### Scope
-- [ ] Estimate provided
+- [ ] Priorities defined
 - [ ] Risks identified
 
 [etc...]
@@ -156,9 +156,9 @@ ORDER BY avg_time DESC;
 
 ### Success Metrics
 - **Intake Quality**: % of tasks with clear requirements
-- **Discover Efficiency**: Research time vs build time ratio
-- **Scope Accuracy**: Estimated vs actual time
-- **Build Velocity**: Story points per sprint
+- **Discover Efficiency**: Unknowns discovered before build
+- **Scope Clarity**: % of must-haves shipped first iteration
+- **Build Velocity**: Features shipped per week
 - **Evaluate Coverage**: Test coverage percentage
 - **Deliver Frequency**: Deployments per week
 - **Operate Stability**: Uptime percentage

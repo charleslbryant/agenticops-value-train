@@ -17,7 +17,7 @@ namespace ValueTrain
             Console.WriteLine("\nCommands:");
             Console.WriteLine("  /intake    - Start gathering requirements");
             Console.WriteLine("  /discover  - Research and learn");
-            Console.WriteLine("  /scope     - Estimate effort");
+            Console.WriteLine("  /scope     - Define priorities");
             Console.WriteLine("  /design    - Plan architecture");
             Console.WriteLine("  /build     - Write code");
             Console.WriteLine("  /evaluate  - Test it");

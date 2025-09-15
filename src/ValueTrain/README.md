@@ -21,7 +21,7 @@ dotnet run --project src/ValueTrain/ValueTrain.csproj
 2. Use mode commands to progress through your workflow:
    - `/intake` - Gather requirements
    - `/discover` - Research unknowns  
-   - `/scope` - Estimate effort
+   - `/scope` - Define priorities
    - `/design` - Plan architecture
    - `/build` - Write code
    - `/evaluate` - Test

@@ -9,7 +9,7 @@ Value Train is just 9 modes that represent stages of building software:
 
 1. **Intake** - Understand what to build
 2. **Discover** - Learn what you don't know
-3. **Scope** - Estimate the work
+3. **Scope** - Prioritize the work
 4. **Design** - Plan the solution
 5. **Build** - Write the code
 6. **Evaluate** - Test it works
