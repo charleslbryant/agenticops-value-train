@@ -29,12 +29,12 @@ The pipeline automatically routes work based on **task labels** and **project co
 ```
 📋 Task Planning
     ↓
-🔍 Context Detection (Business | ML Engineering | Software Engineering)
+🔍 Context Detection (Product Planning | ML Engineering | Software Engineering | Ops Engineering)
     ↓
-┌─────────────┬─────────────┬─────────────┬─────────────┐
-│   Business  │     ML      │  Software   │Operations   │
-│   Strategy  │ Engineering │ Engineering │   Branch    │
-└─────────────┴─────────────┴─────────────┴─────────────┘
+┌──────────┬─────────────┬─────────────┬─────────────┐
+│  Product │     ML      │  Software   │     Ops     │
+│ Planning │ Engineering │ Engineering │ Engineering |
+└──────────┴─────────────┴─────────────┴─────────────┘
     ↓             ↓             ↓             ↓
 📦 Convergence: Universal Integration & Quality Gates
 ```
@@ -47,8 +47,8 @@ These commands work across all task types with intelligent adaptations:
 
 #### `/kick` - Project Initialization
 - **Purpose**: Bootstrap new projects with type-appropriate templates
-- **Intelligence**: Detects project type (ML, SaaS, infrastructure) and configures accordingly
-- **Outputs**: Project structure, initial configuration, agent assignments
+- **Intelligence**: Detects project type (Web, mobile, SaaS, ML, IoT, infrastructure) and configures accordingly
+- **Outputs**: Project structure, initial configuration, agent initializations
 
 #### `/begin` - Session Startup  
 - **Purpose**: Initialize work sessions with full context loading
@@ -87,7 +87,7 @@ These commands form the foundation of all engineering workflows:
 *Note: These commands adapt their focus based on context:*
 - **ML Engineering Context**: ML problem definition, data requirements, model performance criteria
 - **Software Engineering Context**: Technical requirements, system constraints, implementation scope
-- **Business Context**: Market opportunities, business goals, strategic positioning
+- **Product Planning Context**: Vision, market opportunities, business goals, strategic positioning
 
 #### Specialized Engineering Commands
 
@@ -153,7 +153,7 @@ These commands form the foundation of all engineering workflows:
 
 **Context-Specific Artifacts**:
 - **Template Used**: ML Requirements Document (`/docs/templates/ml-requirements-document.md`)
-- **Focus Areas**: Data requirements, model performance criteria, ML problem definition
+- **Focus Areas**: ML use case definition, data requirements, model performance criteria
 - **Success Metrics**: Model accuracy, inference performance, business impact validation
 
 **Execution Flow**:
@@ -191,7 +191,7 @@ These commands form the foundation of all engineering workflows:
 9. **Studio + Ops** deploy to production via `/deliver`
 10. **Ops** monitors production health and performance via `/operate`
 
-### Business Development Workflow
+### Product Planning Workflow
 
 ```
 /kick → /begin → /plan → /intake → /discover → /scope → /deliver
