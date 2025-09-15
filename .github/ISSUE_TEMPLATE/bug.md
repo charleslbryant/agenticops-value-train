@@ -21,8 +21,8 @@ What should happen?
 What actually happens?
 
 ## Value Train Tracking
-- [ ] Intake - Bug understood
-- [ ] Discover - Root cause found
+- [ ] Plan - Bug understood
+- [ ] Research - Root cause found
 - [ ] Build - Fix implemented
 - [ ] Evaluate - Fix verified
 - [ ] Deliver - Fix deployed

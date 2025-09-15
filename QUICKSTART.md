@@ -4,10 +4,10 @@
 
 | Mode | Question | Output |
 |------|----------|--------|
-| Intake | What needs to be built? | Initial understanding |
-| Discover | What don't we know? | Research findings |
-| Scope | What's most important? | Priorities & boundaries |
-| Design | What are the requirements? | Specs & acceptance criteria |
+| Plan | What does the business need? | Requirements & issues |
+| Research | What do we need to learn? | Technical findings |
+| Scope | What's the simplest solution? | MVP definition |
+| Design | What are the specifications? | Technical specs |
 | Build | Code it | Working software |
 | Evaluate | Does it work? | Test results |
 | Deliver | Ship it | Deployed code |
@@ -16,13 +16,13 @@
 
 ## Quick Patterns
 
-**New Feature:** intake → discover → scope → design → build → evaluate → deliver
+**New Feature:** plan → research → scope → design → build → evaluate → deliver
 
-**Bug Fix:** intake → discover → build → evaluate → deliver  
+**Bug Fix:** plan → research → build → evaluate → deliver  
 
-**Research:** discover → scope → design
+**Client Work:** plan → research → scope → design → build → evaluate → deliver
 
-**Hotfix:** intake → build → deliver
+**Hotfix:** plan → build → deliver
 
 ## Tracking Template
 
@@ -31,25 +31,25 @@
 
 ## Status: [Current Mode]
 
-### ✅ Intake
-- [ ] Requirements clear
-- [ ] Success criteria defined
+### ✅ Plan
+- [ ] Business requirements defined
+- [ ] Stakeholders identified
 
-### ⏳ Discover  
-- [ ] Technical approach researched
-- [ ] Unknowns identified
+### ⏳ Research  
+- [ ] Technical approach investigated
+- [ ] Risks identified
 
 ### Scope
-- [ ] Priorities clear (must/nice/defer)
-- [ ] Boundaries defined
+- [ ] MVP defined
+- [ ] Simplest solution found
 
 ### Design
-- [ ] Architecture planned
-- [ ] Patterns chosen
+- [ ] Specifications created
+- [ ] Acceptance criteria defined
 
 ### Build
-- [ ] Code written
-- [ ] Tests written
+- [ ] Tests written first
+- [ ] Code implemented
 
 ### Evaluate
 - [ ] Tests passing
@@ -75,4 +75,4 @@ Just say: "Let's use Value Train for [task]"
 
 ---
 
-*That's it. No complex setup. Just start with Intake and follow the modes.*
+*That's it. No complex setup. Just start with Plan and follow the modes.*

@@ -7,10 +7,10 @@ namespace ValueTrain
     public enum Mode
     {
         None,
-        Intake,     // What needs to be built?
-        Discover,   // What don't we know?
-        Scope,      // Priorities & boundaries
-        Design,     // Requirements & specifications
+        Plan,       // What does the business need?
+        Research,   // What do we need to learn?
+        Scope,      // What's the simplest solution?
+        Design,     // Technical specifications
         Build,      // Write the code
         Evaluate,   // Does it work?
         Deliver,    // Ship it
@@ -108,19 +108,19 @@ namespace ValueTrain
         {
             var checklists = new Dictionary<Mode, string[]>
             {
-                [Mode.Intake] = new[]
+                [Mode.Plan] = new[]
                 {
-                    "Define the problem to solve",
+                    "Define business requirements",
                     "Identify stakeholders",
                     "Document success criteria",
-                    "Capture constraints and assumptions"
+                    "Create GitHub issues"
                 },
-                [Mode.Discover] = new[]
+                [Mode.Research] = new[]
                 {
-                    "Research existing solutions",
-                    "Identify technical unknowns",
-                    "Spike on new technologies if needed",
-                    "Document findings and options"
+                    "Investigate technical approaches",
+                    "Identify unknowns and risks",
+                    "Research libraries and tools",
+                    "Document findings in issue"
                 },
                 [Mode.Scope] = new[]
                 {
@@ -195,8 +195,8 @@ namespace ValueTrain
         {
             return CurrentMode switch
             {
-                Mode.Intake => Mode.Discover,
-                Mode.Discover => Mode.Scope,
+                Mode.Plan => Mode.Research,
+                Mode.Research => Mode.Scope,
                 Mode.Scope => Mode.Design,
                 Mode.Design => Mode.Build,
                 Mode.Build => Mode.Evaluate,
@@ -204,7 +204,7 @@ namespace ValueTrain
                 Mode.Deliver => Mode.Operate,
                 Mode.Operate => Mode.Improve,
                 Mode.Improve => Mode.None,
-                _ => Mode.Intake
+                _ => Mode.Plan
             };
         }
     }

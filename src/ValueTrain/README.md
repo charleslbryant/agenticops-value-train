@@ -19,15 +19,15 @@ dotnet run --project src/ValueTrain/ValueTrain.csproj
 
 1. Start the program and enter your task name
 2. Use mode commands to progress through your workflow:
-   - `/intake` - Gather requirements
-   - `/discover` - Research unknowns  
-   - `/scope` - Define priorities
-   - `/design` - Plan architecture
-   - `/build` - Write code
-   - `/evaluate` - Test
-   - `/deliver` - Deploy
-   - `/operate` - Monitor
-   - `/improve` - Optimize
+   - `plan` - Define business requirements
+   - `research` - Investigate technical approach  
+   - `scope` - Define simplest solution
+   - `design` - Create specifications
+   - `build` - Write code
+   - `evaluate` - Test
+   - `deliver` - Deploy
+   - `operate` - Monitor
+   - `improve` - Optimize
 
 3. Use `/status` to see your progress
 4. Use `/todo` to manage your checklist

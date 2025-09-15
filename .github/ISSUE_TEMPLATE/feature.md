@@ -13,9 +13,9 @@ What problem does this solve?
 How should we solve it?
 
 ## Value Train Modes
-- [ ] Intake - Requirements gathered
-- [ ] Discover - Research complete
-- [ ] Scope - Priorities defined
+- [ ] Plan - Requirements defined
+- [ ] Research - Technical investigation complete
+- [ ] Scope - MVP defined
 - [ ] Design - Specs created
 - [ ] Build - Code written
 - [ ] Evaluate - Tests passing

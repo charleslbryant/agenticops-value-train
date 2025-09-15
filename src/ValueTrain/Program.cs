@@ -15,15 +15,15 @@ namespace ValueTrain
             session.TaskName = Console.ReadLine() ?? "Unnamed Task";
             
             Console.WriteLine("\nCommands:");
-            Console.WriteLine("  /intake    - Start gathering requirements");
-            Console.WriteLine("  /discover  - Research and learn");
-            Console.WriteLine("  /scope     - Define priorities");
-            Console.WriteLine("  /design    - Plan architecture");
-            Console.WriteLine("  /build     - Write code");
-            Console.WriteLine("  /evaluate  - Test it");
-            Console.WriteLine("  /deliver   - Ship it");
-            Console.WriteLine("  /operate   - Monitor it");
-            Console.WriteLine("  /improve   - Make it better");
+            Console.WriteLine("  plan       - Define business requirements");
+            Console.WriteLine("  research   - Investigate technical approach");
+            Console.WriteLine("  scope      - Define simplest solution");
+            Console.WriteLine("  design     - Create specifications");
+            Console.WriteLine("  build      - Write code");
+            Console.WriteLine("  evaluate   - Test it");
+            Console.WriteLine("  deliver    - Ship it");
+            Console.WriteLine("  operate    - Monitor it");
+            Console.WriteLine("  improve    - Make it better");
             Console.WriteLine("  /status    - Show current status");
             Console.WriteLine("  /todo      - Manage todos");
             Console.WriteLine("  /next      - Move to next mode");
@@ -39,31 +39,31 @@ namespace ValueTrain
                 
                 switch (input)
                 {
-                    case "/intake":
-                        session.SwitchMode(Mode.Intake);
+                    case "plan":
+                        session.SwitchMode(Mode.Plan);
                         break;
-                    case "/discover":
-                        session.SwitchMode(Mode.Discover);
+                    case "research":
+                        session.SwitchMode(Mode.Research);
                         break;
-                    case "/scope":
+                    case "scope":
                         session.SwitchMode(Mode.Scope);
                         break;
-                    case "/design":
+                    case "design":
                         session.SwitchMode(Mode.Design);
                         break;
-                    case "/build":
+                    case "build":
                         session.SwitchMode(Mode.Build);
                         break;
-                    case "/evaluate":
+                    case "evaluate":
                         session.SwitchMode(Mode.Evaluate);
                         break;
-                    case "/deliver":
+                    case "deliver":
                         session.SwitchMode(Mode.Deliver);
                         break;
-                    case "/operate":
+                    case "operate":
                         session.SwitchMode(Mode.Operate);
                         break;
-                    case "/improve":
+                    case "improve":
                         session.SwitchMode(Mode.Improve);
                         break;
                     case "/status":

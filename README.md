@@ -6,10 +6,10 @@
 
 Nine simple modes that guide you from idea to production:
 
-1. **Intake** - What needs to be built?
-2. **Discover** - What do we need to learn first?
-3. **Scope** - What's in/out of scope? Constraints?
-4. **Design** - Requirements and specifications
+1. **Plan** - What does the business need?
+2. **Research** - What do we need to learn?
+3. **Scope** - What's the simplest solution?
+4. **Design** - Technical specifications
 5. **Build** - Write the code
 6. **Evaluate** - Does it work?
 7. **Deliver** - Ship it
@@ -22,10 +22,10 @@ That's it. No complex configs. No 18 phases. No 7 agents. Just a simple workflow
 
 ### For a New Feature:
 ```
-Intake     → Understand the need
-Discover   → Research approach  
-Scope      → Define priorities
-Design     → Specify requirements
+Plan       → Define business requirements
+Research   → Investigate technical approach  
+Scope      → Define MVP
+Design     → Create specifications
 Build      → Write code
 Evaluate   → Test it
 Deliver    → Deploy
@@ -33,29 +33,32 @@ Deliver    → Deploy
 
 ### For a Bug Fix:
 ```
-Intake     → Understand the bug
-Discover   → Find root cause
+Plan       → Understand the bug report
+Research   → Find root cause
 Build      → Fix it
 Evaluate   → Verify fix
 Deliver    → Deploy patch
 ```
 
-### For Refactoring:
+### For Client Work:
 ```
-Discover   → Identify problem areas
-Scope      → Define refactor boundaries
-Design     → Plan new structure
-Build      → Refactor
-Evaluate   → Ensure nothing broke
+Plan       → Gather client requirements
+Research   → Study their systems
+Scope      → Define simplest solution
+Design     → Technical specifications
+Build      → Implementation
+Evaluate   → Testing
+Deliver    → Ship to client
 ```
 
 ## How to Use
 
 ### Option 1: Mental Model Only
 Just use the modes as a checklist. Ask yourself:
-- Have I understood what needs to be built? (Intake)
-- Do I know enough to build it? (Discover)
-- Have I planned the approach? (Design)
+- Have I defined the business requirements? (Plan)
+- Have I researched the technical approach? (Research)
+- Have I found the simplest solution? (Scope)
+- Have I created specifications? (Design)
 - etc.
 
 ### Option 2: With Claude.ai
@@ -69,27 +72,29 @@ Create a `value-train.md` file in your project:
 ```markdown
 # Current Mode: Build
 
-## Intake ✅
-- Understood requirements
+## Plan ✅
+- Defined business requirements
 - Identified stakeholders
+- Created GitHub issues
 
-## Discover ✅
-- Researched existing solutions
-- Identified technical constraints
+## Research ✅
+- Investigated technical approaches
+- Identified risks
+- Researched libraries
 
 ## Scope ✅
 - Must have: Basic theme toggle
 - Nice to have: Custom colors
-- Ship first, iterate later
+- Defer: Per-page themes
 
 ## Design ✅
-- Created architecture diagram
-- Chose tech stack
+- Created technical specifications
+- Defined acceptance criteria
 
 ## Build 🚧
-- [ ] Implement API
-- [ ] Add frontend
-- [ ] Write tests
+- [ ] Write tests first
+- [ ] Implement functionality
+- [ ] Commit frequently
 
 ## Evaluate
 - [ ] Run tests
@@ -110,60 +115,60 @@ Create a `value-train.md` file in your project:
 
 ## Mode Details
 
-### /intake - Requirements Gathering
-**Purpose:** Understand what needs to be built and why
+### Plan - Business Requirements
+**Purpose:** Define what the business needs
 
 **Questions to answer:**
 - What problem are we solving?
-- Who will use this?
+- Who are the stakeholders?
 - What does success look like?
-- What are the constraints?
+- What's the business value?
 
-**Output:** Clear requirements document or user story
+**Output:** Clear business requirements and GitHub issues
 
 ---
 
-### /discover - Research & Learning
-**Purpose:** Figure out what you don't know
+### Research - Technical Investigation
+**Purpose:** Learn what we need to know to deliver
 
 **Activities:**
-- Research existing solutions
-- Identify technical challenges
-- Spike on unknown technologies
-- Talk to domain experts
+- Research technical approaches
+- Identify unknowns and risks
+- Investigate libraries and tools
+- Study existing systems
 
-**Output:** Technical findings and approach options
+**Output:** Technical findings documented in issues
 
 ---
 
-### /scope - Boundaries & Priorities
-**Purpose:** Define what we will and won't do, and what matters most
+### Scope - Simplest Solution
+**Purpose:** Find the simplest solution that meets requirements
 
 **Questions to answer:**
-- What's in scope vs out of scope?
-- What are the must-haves vs nice-to-haves?
-- What constraints do we have (technical, regulatory, etc)?
-- What can we ship first and iterate on?
+- What's the MVP?
+- What are must-haves vs nice-to-haves?
+- What can we defer?
+- What's the simplest approach?
 
-**Output:** Clear priorities and boundaries
+**Output:** Clear scope and priorities
 
 ---
 
-### /design - Requirements & Specifications
-**Purpose:** Define detailed requirements and technical specifications
+### Design - Technical Specifications
+**Purpose:** Create detailed technical specifications
 
 **Activities:**
-- Document functional requirements
-- Define non-functional requirements
+- Document technical approach
+- Define acceptance criteria
 - Specify API contracts
 - Create data models
-- Define acceptance criteria
+- Plan architecture
 
-**Output:** Requirements document and technical specifications
+**Output:** Technical specifications and acceptance criteria
 
 ---
 
-### /build - Implementation
+### Build - Implementation
 **Purpose:** Write the actual code
 
 **Best practices:**
@@ -176,7 +181,7 @@ Create a `value-train.md` file in your project:
 
 ---
 
-### /evaluate - Testing & Validation
+### Evaluate - Testing & Validation
 **Purpose:** Ensure it works correctly
 
 **Activities:**
@@ -191,7 +196,7 @@ Create a `value-train.md` file in your project:
 
 ---
 
-### /deliver - Deployment
+### Deliver - Deployment
 **Purpose:** Get it to production
 
 **Activities:**
@@ -204,7 +209,7 @@ Create a `value-train.md` file in your project:
 
 ---
 
-### /operate - Monitoring
+### Operate - Monitoring
 **Purpose:** Ensure it keeps working
 
 **Activities:**
@@ -217,7 +222,7 @@ Create a `value-train.md` file in your project:
 
 ---
 
-### /improve - Optimization
+### Improve - Optimization
 **Purpose:** Make it better based on real usage
 
 **Activities:**
@@ -247,57 +252,60 @@ A: We removed it. This is the simplified version focused on practical software d
 ### Example 1: Adding Dark Mode to an App
 
 ```
-Intake:
+Plan:
 - Users want dark mode for night usage
-- Should respect system preferences
-- Need toggle in settings
+- Business value: Improved user experience
+- Success criteria: Users can toggle themes
 
-Discover:
+Research:
 - Current app uses CSS-in-JS
 - Need to research theme switching patterns
 - Check browser compatibility
 
 Scope:
-- MUST: Theme switching, settings toggle
-- NICE: System preference detection, animations
-- DEFER: Custom color picker, per-page themes
-- CONSTRAINT: Must work in IE11
+- MVP: Basic light/dark toggle
+- DEFER: Custom colors, per-page themes
+- Simplest: CSS variables + React Context
 
 Design:
-- Requirement: Toggle between light/dark themes
-- Requirement: Remember user preference
-- Spec: Use CSS custom properties for theming
-- Spec: React Context for state management
-- Acceptance: Works in all target browsers
+- Spec: Theme context for state
+- Spec: CSS custom properties for colors
+- Acceptance: Works in all browsers
+- Acceptance: Preference persists
 
 Build:
-- Create ThemeContext
+- Write theme toggle tests
+- Implement ThemeContext
 - Add toggle component
-- Update all components
 
 Evaluate:
-- Test in multiple browsers
-- Check accessibility contrast
-- Verify persistence works
+- All tests passing
+- Accessibility verified
+- Cross-browser tested
 
 Deliver:
-- Deploy to staging for QA
-- Get design approval
-- Deploy to production
+- Create PR with screenshots
+- Deploy to staging
+- Ship to production
 ```
 
 ### Example 2: Fixing Performance Issue
 
 ```
-Intake:
-- App is slow when loading large datasets
-- Users reporting timeouts
-- Affects dashboard page
+Plan:
+- Users reporting slow dashboard
+- Business impact: User frustration
+- Success: Sub-2 second load time
 
-Discover:
+Research:
 - Profile current performance
 - Found N+1 query problem
 - Database missing indexes
+
+Scope:
+- MVP: Add indexes and batching
+- DEFER: Complete rewrite
+- Simplest: Optimize queries
 
 Build:
 - Add database indexes
@@ -306,7 +314,7 @@ Build:
 
 Evaluate:
 - Load test with large dataset
-- Verify 10x performance improvement
+- Verified 10x improvement
 
 Deliver:
 - Deploy during maintenance window
@@ -315,11 +323,12 @@ Deliver:
 
 ## Getting Started
 
-1. **Create a GitHub issue** - Use the Value Train task template
-2. **Start with Intake** - Document requirements in the issue
-3. **Move through modes** - Update issue as you progress
-4. **Collaborate** - Others can continue from your issue context
-5. **Iterate** - Go through modes multiple times if needed
+1. **Create a GitHub issue** - Use the Value Train task template  
+2. **Start with Plan** - Define business requirements
+3. **Research** - Investigate technical approach
+4. **Scope** - Find the simplest solution
+5. **Build through Deliver** - Implement and ship
+6. **Iterate** - Learn and improve
 
 ### 💡 Pro Tip: Persistent Context
 GitHub issues maintain context across sessions. Update them regularly so anyone (human or AI) can pick up where you left off. See [collaboration guide](docs/collaboration.md) for details.

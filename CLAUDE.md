@@ -6,10 +6,10 @@ Instructions for Claude when working with Value Train projects.
 
 The Value Train uses 9 conceptual modes to organize work. These are **mental models**, not commands - just ways to think about what type of work you're doing:
 
-1. **Intake** - Understanding what needs to be built
-2. **Discover** - Researching unknowns
-3. **Scope** - Defining priorities and boundaries
-4. **Design** - Creating requirements and specifications
+1. **Plan** - Defining business requirements
+2. **Research** - Investigating technical approach
+3. **Scope** - Finding the simplest solution
+4. **Design** - Creating technical specifications
 5. **Build** - Writing code
 6. **Evaluate** - Testing and code review
 7. **Deliver** - Deploying to production
